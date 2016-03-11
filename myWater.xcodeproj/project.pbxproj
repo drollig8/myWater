@@ -20,6 +20,10 @@
 		6E15CFFB1C93373E0063173B /* water.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E15CFFA1C93373E0063173B /* water.png */; };
 		6E15CFFE1C9338260063173B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFFD1C9338260063173B /* MainViewController.swift */; };
 		6E15D0011C9338510063173B /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D0001C9338510063173B /* MainViewControllerTests.swift */; };
+		6E15D0091C933F1C0063173B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D0081C933F1C0063173B /* SelectionView.swift */; };
+		6E15D00C1C933F500063173B /* SelectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D00B1C933F500063173B /* SelectionViewTests.swift */; };
+		6E15D00E1C9347560063173B /* SelectionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D00D1C9347560063173B /* SelectionDataProvider.swift */; };
+		6E15D0101C9348EA0063173B /* SelectionViewDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D00F1C9348EA0063173B /* SelectionViewDataProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,10 @@
 		6E15CFFA1C93373E0063173B /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
 		6E15CFFD1C9338260063173B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6E15D0001C9338510063173B /* MainViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewControllerTests.swift; path = Controller/MainViewControllerTests.swift; sourceTree = "<group>"; };
+		6E15D0081C933F1C0063173B /* SelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectionView.swift; path = Views/SelectionView.swift; sourceTree = "<group>"; };
+		6E15D00B1C933F500063173B /* SelectionViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectionViewTests.swift; path = Views/SelectionViewTests.swift; sourceTree = "<group>"; };
+		6E15D00D1C9347560063173B /* SelectionDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionDataProvider.swift; sourceTree = "<group>"; };
+		6E15D00F1C9348EA0063173B /* SelectionViewDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectionViewDataProviderTests.swift; path = Controller/SelectionViewDataProviderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,7 @@
 		6E15CFCB1C9333A00063173B /* myWater */ = {
 			isa = PBXGroup;
 			children = (
+				6E15D0071C933F060063173B /* Views */,
 				6E15CFFF1C93382D0063173B /* Controller */,
 				6E15CFEE1C9333F20063173B /* Modell */,
 				6E15CFEC1C9333BB0063173B /* Supporting Files */,
@@ -101,6 +110,7 @@
 		6E15CFE01C9333A00063173B /* myWaterTests */ = {
 			isa = PBXGroup;
 			children = (
+				6E15D00A1C933F3E0063173B /* Views */,
 				6E15CFFC1C93381A0063173B /* Controller */,
 				6E15CFEF1C9333F80063173B /* Modell */,
 				6E15CFED1C9333DF0063173B /* Supporting Files */,
@@ -153,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				6E15D0001C9338510063173B /* MainViewControllerTests.swift */,
+				6E15D00F1C9348EA0063173B /* SelectionViewDataProviderTests.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -161,8 +172,25 @@
 			isa = PBXGroup;
 			children = (
 				6E15CFFD1C9338260063173B /* MainViewController.swift */,
+				6E15D00D1C9347560063173B /* SelectionDataProvider.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		6E15D0071C933F060063173B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E15D0081C933F1C0063173B /* SelectionView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6E15D00A1C933F3E0063173B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E15D00B1C933F500063173B /* SelectionViewTests.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +300,8 @@
 				6E15CFCD1C9333A00063173B /* AppDelegate.swift in Sources */,
 				6E15CFF91C93368F0063173B /* Beverage.swift in Sources */,
 				6E15CFF51C93349E0063173B /* WaterEntry.swift in Sources */,
+				6E15D0091C933F1C0063173B /* SelectionView.swift in Sources */,
+				6E15D00E1C9347560063173B /* SelectionDataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +312,8 @@
 				6E15CFF31C9334430063173B /* WaterEntryTests.swift in Sources */,
 				6E15CFE21C9333A00063173B /* myWaterTests.swift in Sources */,
 				6E15CFF71C9336650063173B /* BeverageTests.swift in Sources */,
+				6E15D00C1C933F500063173B /* SelectionViewTests.swift in Sources */,
+				6E15D0101C9348EA0063173B /* SelectionViewDataProviderTests.swift in Sources */,
 				6E15D0011C9338510063173B /* MainViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

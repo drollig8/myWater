@@ -28,13 +28,19 @@ class WaterEntryTests: XCTestCase {
         
     }
     
-    /*
+    
     func testInit_SetsDateAndBeverage() {
         let testDate = NSDate()
-        let waterEntry = WaterEntry(date: testDate, beverage: Beverage(name: "Water"))
-        XCTAssertEqual(testDate, waterEntry.date)
+        let waterEntry = WaterEntry(date: testDate, beverage: Beverage(name: "Test"))
+        XCTAssertEqual(waterEntry.beverage?.name, "Test")
         
     }
-*/
+    
+    func testInit_SetsDateAndBeverageAndAmount() {
+        let testDate = NSDate()
+        let waterEntry = WaterEntry(date: testDate, beverage: nil, amount: 270)
+        XCTAssertEqual(waterEntry.amount, 270)
+    }
+
 
 }

@@ -10,10 +10,14 @@ import Foundation
 
 struct WaterEntry
 {
-    let date: NSDate!
+    let date: NSDate
+    let beverage: Beverage?
+    let amount: Int?
     
-    init(date: NSDate) {
+    init(date: NSDate, beverage: Beverage? = nil, amount: Int? = nil) {
         self.date = date
+        self.beverage = beverage
+        self.amount = amount
     }
 
 }

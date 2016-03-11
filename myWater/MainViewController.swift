@@ -8,6 +8,14 @@
 
 import UIKit
 
-class MainViewContrller: UIViewController {
-    //
+class MainViewController: UIViewController {
+    
+    @IBOutlet weak var addEntryButton: UIButton!
+    @IBAction func addEntry(sender: UIButton) {
+        var frame = super.view.frame
+        frame.size.height = frame.height / 2
+        frame.origin.y = frame.height 
+        let selectionView = SelectionView(frame: frame)
+        view.addSubview(selectionView)
+    }
 }
