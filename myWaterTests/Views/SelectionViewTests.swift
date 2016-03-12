@@ -15,7 +15,7 @@ class SelectionViewTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = SelectionView()
+        sut = SelectionView(frame: CGRect(x: 0, y: 0, width: 127, height: 328))
     }
     
     override func tearDown() {
@@ -36,7 +36,7 @@ class SelectionViewTests: XCTestCase {
     
     
     func testSelectionViewHasPageView() {
-    XCTAssertNotNil(sut.pageViewController)
+        XCTAssertNotNil(sut.pageViewController)
     }
 
     func testPageViewControllerHasDelegate() {
@@ -48,6 +48,17 @@ class SelectionViewTests: XCTestCase {
         XCTAssertEqual(sut.subviews.count,1)
     }
 
+    func testPageViewControlles_HasSameWidthAsSuperView() {
+        let pageViewControllerWidth = sut.pageViewController.view.frame.width
+        let selectionViewWidth = sut.frame.width
+        XCTAssertEqual(pageViewControllerWidth, selectionViewWidth)
+    }
+    
+    func testPageViewControlles_HasAlmostSameHeightAsSuperView() {
+        let pageViewControllerHeight = sut.pageViewController.view.frame.height
+        let selectionViewHeight = sut.frame.height
+        XCTAssertEqual(pageViewControllerHeight, selectionViewHeight-44)
+    }
     
     // we need now to test that each and every viewcontroller has it's collection view.
     
@@ -71,6 +82,7 @@ class SelectionViewTests: XCTestCase {
         XCTAssertNotNil(contentVC.collectionView.delegate)
         XCTAssertEqual(contentVC.collectionView.dataSource?.collectionView(contentVC.collectionView, numberOfItemsInSection: 0), 3)
     }
+    
 
 }
 

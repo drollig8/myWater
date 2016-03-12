@@ -9,30 +9,24 @@
 import UIKit
 
 class SelectionDataProvider: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
+
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 3
+    }
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 3
-    }
-    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return BeverageCell()
+       
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! BeverageCell
+        cell.backgroundColor = UIColor.greenColor()
+        cell.configureCellWithItem(Beverage(name: "test123"))
+        
+        return cell
     }
 }
 
-class BeverageCell: UICollectionViewCell {
-    var textLabel: UILabel!
-    override init(frame: CGRect) {
-        textLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        super.init(frame: frame)
-        textLabel.text = "MMMM"
-        layoutSubviews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-}
+

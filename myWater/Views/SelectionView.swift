@@ -9,20 +9,11 @@
 import UIKit
 
 class SelectionView: UIView, UIPageViewControllerDataSource {
-    
-    
-    
-    
-    
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
-       
-        
-        self.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.3)
-        
+        self.backgroundColor = UIColor.redColor()
         initiatePageViewController()
-        
-        
     }
     
 
@@ -50,16 +41,6 @@ class SelectionView: UIView, UIPageViewControllerDataSource {
     
     private func setupViewControllers() {
         stackPageVC = stackVC
-        /*
-        stackPageVC = [UIViewController]()
-        for index in 0..<stackVC.count {
-            let pageVC = UIViewController()
-            pageVC.addChildViewController(stackVC[index])
-            pageVC.view.addSubview(stackVC[index].view)
-            stackVC[index].didMoveToParentViewController(pageVC)
-            stackPageVC.append(pageVC)
-        }
-*/
         currentStackVC = stackPageVC[stackStartLocation]
     }
     
@@ -68,7 +49,7 @@ class SelectionView: UIView, UIPageViewControllerDataSource {
         pageViewController.dataSource = self
         pageViewController.setViewControllers([stackPageVC[stackStartLocation]], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
         
-        pageViewController.view.frame = CGRect(x: 0, y: 44, width: 300, height: 550)
+        pageViewController.view.frame = CGRect(x: 0, y: 44, width: self.frame.width, height: self.frame.height - 44)
         self.addSubview(pageViewController.view)
     }
 
@@ -104,20 +85,3 @@ class SelectionView: UIView, UIPageViewControllerDataSource {
 
 }
 
-class ContentViewController: UIViewController {
-    var collectionView: UICollectionView!
-    var collectionDataProvider = SelectionDataProvider()
-    
-    override func viewDidLoad() {
-        initiateCollectionView()
-        self.view.addSubview(collectionView)
-    }
-    private func initiateCollectionView() {
-        
-        let layout = UICollectionViewFlowLayout()
-        collectionView = UICollectionView(frame: CGRectMake(0, 0, 100, 100), collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.grayColor()
-        collectionView.dataSource = collectionDataProvider
-        collectionView.delegate = collectionDataProvider
-    }
-}

@@ -12,7 +12,6 @@
 		6E15CFD21C9333A00063173B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E15CFD01C9333A00063173B /* Main.storyboard */; };
 		6E15CFD41C9333A00063173B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E15CFD31C9333A00063173B /* Assets.xcassets */; };
 		6E15CFD71C9333A00063173B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E15CFD51C9333A00063173B /* LaunchScreen.storyboard */; };
-		6E15CFE21C9333A00063173B /* myWaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFE11C9333A00063173B /* myWaterTests.swift */; };
 		6E15CFF31C9334430063173B /* WaterEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFF21C9334430063173B /* WaterEntryTests.swift */; };
 		6E15CFF51C93349E0063173B /* WaterEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFF41C93349E0063173B /* WaterEntry.swift */; };
 		6E15CFF71C9336650063173B /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFF61C9336650063173B /* BeverageTests.swift */; };
@@ -24,6 +23,10 @@
 		6E15D00C1C933F500063173B /* SelectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D00B1C933F500063173B /* SelectionViewTests.swift */; };
 		6E15D00E1C9347560063173B /* SelectionDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D00D1C9347560063173B /* SelectionDataProvider.swift */; };
 		6E15D0101C9348EA0063173B /* SelectionViewDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D00F1C9348EA0063173B /* SelectionViewDataProviderTests.swift */; };
+		6E15D0421C93FE5F0063173B /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D0411C93FE5F0063173B /* ContentViewController.swift */; };
+		6E15D0441C9412D40063173B /* BeverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D0431C9412D40063173B /* BeverageCell.swift */; };
+		6E15D0461C94143B0063173B /* BeverageCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D0451C94143B0063173B /* BeverageCellTests.swift */; };
+		6E15D0481C9416ED0063173B /* ContentViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D0471C9416ED0063173B /* ContentViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +48,6 @@
 		6E15CFD61C9333A00063173B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E15CFD81C9333A00063173B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E15CFDD1C9333A00063173B /* myWaterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myWaterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E15CFE11C9333A00063173B /* myWaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myWaterTests.swift; sourceTree = "<group>"; };
 		6E15CFE31C9333A00063173B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E15CFF21C9334430063173B /* WaterEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaterEntryTests.swift; path = Model/WaterEntryTests.swift; sourceTree = "<group>"; };
 		6E15CFF41C93349E0063173B /* WaterEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaterEntry.swift; path = Model/WaterEntry.swift; sourceTree = "<group>"; };
@@ -58,6 +60,10 @@
 		6E15D00B1C933F500063173B /* SelectionViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectionViewTests.swift; path = Views/SelectionViewTests.swift; sourceTree = "<group>"; };
 		6E15D00D1C9347560063173B /* SelectionDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionDataProvider.swift; sourceTree = "<group>"; };
 		6E15D00F1C9348EA0063173B /* SelectionViewDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectionViewDataProviderTests.swift; path = Controller/SelectionViewDataProviderTests.swift; sourceTree = "<group>"; };
+		6E15D0411C93FE5F0063173B /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentViewController.swift; path = Controller/ContentViewController.swift; sourceTree = "<group>"; };
+		6E15D0431C9412D40063173B /* BeverageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeverageCell.swift; path = Controller/BeverageCell.swift; sourceTree = "<group>"; };
+		6E15D0451C94143B0063173B /* BeverageCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeverageCellTests.swift; path = Controller/BeverageCellTests.swift; sourceTree = "<group>"; };
+		6E15D0471C9416ED0063173B /* ContentViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentViewControllerTests.swift; path = Controller/ContentViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +141,6 @@
 		6E15CFED1C9333DF0063173B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6E15CFE11C9333A00063173B /* myWaterTests.swift */,
 				6E15CFE31C9333A00063173B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -164,6 +169,8 @@
 			children = (
 				6E15D0001C9338510063173B /* MainViewControllerTests.swift */,
 				6E15D00F1C9348EA0063173B /* SelectionViewDataProviderTests.swift */,
+				6E15D0451C94143B0063173B /* BeverageCellTests.swift */,
+				6E15D0471C9416ED0063173B /* ContentViewControllerTests.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -173,6 +180,8 @@
 			children = (
 				6E15CFFD1C9338260063173B /* MainViewController.swift */,
 				6E15D00D1C9347560063173B /* SelectionDataProvider.swift */,
+				6E15D0411C93FE5F0063173B /* ContentViewController.swift */,
+				6E15D0431C9412D40063173B /* BeverageCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -295,6 +304,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E15D0441C9412D40063173B /* BeverageCell.swift in Sources */,
+				6E15D0421C93FE5F0063173B /* ContentViewController.swift in Sources */,
 				6E15CFFE1C9338260063173B /* MainViewController.swift in Sources */,
 				6E15CFCF1C9333A00063173B /* ViewController.swift in Sources */,
 				6E15CFCD1C9333A00063173B /* AppDelegate.swift in Sources */,
@@ -309,10 +320,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E15D0461C94143B0063173B /* BeverageCellTests.swift in Sources */,
 				6E15CFF31C9334430063173B /* WaterEntryTests.swift in Sources */,
-				6E15CFE21C9333A00063173B /* myWaterTests.swift in Sources */,
 				6E15CFF71C9336650063173B /* BeverageTests.swift in Sources */,
 				6E15D00C1C933F500063173B /* SelectionViewTests.swift in Sources */,
+				6E15D0481C9416ED0063173B /* ContentViewControllerTests.swift in Sources */,
 				6E15D0101C9348EA0063173B /* SelectionViewDataProviderTests.swift in Sources */,
 				6E15D0011C9338510063173B /* MainViewControllerTests.swift in Sources */,
 			);
@@ -496,6 +508,7 @@
 				6E15CFE81C9333A00063173B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6E15CFE91C9333A00063173B /* Build configuration list for PBXNativeTarget "myWaterTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +517,7 @@
 				6E15CFEB1C9333A00063173B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
