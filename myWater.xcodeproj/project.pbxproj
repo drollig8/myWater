@@ -27,6 +27,7 @@
 		6E15D0441C9412D40063173B /* BeverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D0431C9412D40063173B /* BeverageCell.swift */; };
 		6E15D0461C94143B0063173B /* BeverageCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D0451C94143B0063173B /* BeverageCellTests.swift */; };
 		6E15D0481C9416ED0063173B /* ContentViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D0471C9416ED0063173B /* ContentViewControllerTests.swift */; };
+		6E15D04C1C94B6910063173B /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D04B1C94B6910063173B /* Extension+UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		6E15D0431C9412D40063173B /* BeverageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeverageCell.swift; path = Controller/BeverageCell.swift; sourceTree = "<group>"; };
 		6E15D0451C94143B0063173B /* BeverageCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeverageCellTests.swift; path = Controller/BeverageCellTests.swift; sourceTree = "<group>"; };
 		6E15D0471C9416ED0063173B /* ContentViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentViewControllerTests.swift; path = Controller/ContentViewControllerTests.swift; sourceTree = "<group>"; };
+		6E15D04B1C94B6910063173B /* Extension+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		6E15CFEC1C9333BB0063173B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6E15D04B1C94B6910063173B /* Extension+UIColor.swift */,
 				6E15CFFA1C93373E0063173B /* water.png */,
 				6E15CFCC1C9333A00063173B /* AppDelegate.swift */,
 				6E15CFCE1C9333A00063173B /* ViewController.swift */,
@@ -305,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E15D0441C9412D40063173B /* BeverageCell.swift in Sources */,
+				6E15D04C1C94B6910063173B /* Extension+UIColor.swift in Sources */,
 				6E15D0421C93FE5F0063173B /* ContentViewController.swift in Sources */,
 				6E15CFFE1C9338260063173B /* MainViewController.swift in Sources */,
 				6E15CFCF1C9333A00063173B /* ViewController.swift in Sources */,
