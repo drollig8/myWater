@@ -28,5 +28,12 @@ class ContentViewControllerTests: XCTestCase {
         let collectionViewFrame = contentViewController.collectionView.frame
         XCTAssertEqual(contentViewControllerFrame.width, collectionViewFrame.width)
     }
+    
+    func testCellSize_IsOneThirdOfSuperView() {
+        let contentViewController =  ContentViewController()
+        let contentViewControllerFrame = contentViewController.view.frame
+        let cellSize = contentViewControllerFrame.width / 3 - 10
+        XCTAssertEqual(contentViewController.layout.itemSize, CGSize(width: cellSize, height: cellSize + 30)) // hohe des Textlabels
+    }
 
 }

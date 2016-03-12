@@ -32,5 +32,16 @@ class BeverageCellTests: XCTestCase {
         let image = UIImage(named: "water")
         XCTAssertEqual(cell.imageView.image,image)
     }
+    
+    func testLabelTextIsCentered() {
+        let cell = BeverageCell()
+        cell.configureCellWithItem(Beverage(name: "test333", imageName: "water"))
+        XCTAssertEqual(cell.textLabel.textAlignment, NSTextAlignment.Center)
+    }
+    
+    
+    
+    // Ist Presentation of View Animated
+    // Presentation 
 
 }

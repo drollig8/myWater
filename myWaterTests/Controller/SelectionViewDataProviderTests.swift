@@ -33,14 +33,6 @@ class SelectionViewDataProviderTests: XCTestCase {
     override func setUp() {
         super.setUp()
         sut = SelectionDataProvider()
-        
-        /*
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        controller = storyboard.instantiateViewControllerWithIdentifier("ContentViewController") as! ContentViewController
-        _ = controller.view
-        collectionView = controller.collectionView
-        */
-        
         let layout = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: CGRectMake(0, 0, 100, 100), collectionViewLayout: layout)
         collectionView.registerClass(BeverageCell.self, forCellWithReuseIdentifier: "Cell")
@@ -83,6 +75,18 @@ class SelectionViewDataProviderTests: XCTestCase {
         let cell = sut.collectionView(mockCollectionView, cellForItemAtIndexPath: NSIndexPath(forItem: 0, inSection: 0)) as! MockBeverageCell
 
         XCTAssertTrue(cell.configureCellGotCalled)
+    }
+    
+    func testSelectingACell_SendsNotification() {
+        expectationForNotification("ItemSelectedNotification",
+            object: nil) { (notification) -> Bool in
+                
+                guard let index = notification.userInfo?["index"] as? Int else { return false }
+                return index == 0
+        }
+        sut.collectionView(collectionView, didSelectItemAtIndexPath: NSIndexPath(forItem: 0, inSection: 0))
+       // collectionView.delegate?.collectionView!(collectionView, didSelectItemAtIndexPath: NSIndexPath(forItem: 0, inSection: 0))
+        waitForExpectationsWithTimeout(3, handler: nil)
     }
     
 
