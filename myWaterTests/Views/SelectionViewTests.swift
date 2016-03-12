@@ -47,23 +47,29 @@ class SelectionViewTests: XCTestCase {
     func testSelectionViewHasSubviewPageViewController() {
         XCTAssertEqual(sut.subviews.count,1)
     }
-    
-  
-    
+
     
     // we need now to test that each and every viewcontroller has it's collection view.
     
     func testSelectionViewDidLoad_SetCollectionView() {
-        
-        XCTAssertNotNil(sut.collectionView)
+        let contentVC = sut.stackVC[0] as! ContentViewController
+        XCTAssertNotNil(contentVC.collectionView)
     }
     
     func testSelectionView_HasDataSource() {
-        XCTAssertNotNil(sut.collectionView.dataSource)
+        let contentVC = sut.stackVC[0] as! ContentViewController
+        XCTAssertNotNil(contentVC.collectionView.dataSource)
     }
-
+    
     func testSelectionView_HasDelegate() {
-        XCTAssertNotNil(sut.collectionView.delegate)
+        let contentVC = sut.stackVC[0] as! ContentViewController
+        XCTAssertNotNil(contentVC.collectionView.delegate)
+    }
+    
+    func testNumberOfRows() {
+        let contentVC = sut.stackVC[0] as! ContentViewController
+        XCTAssertNotNil(contentVC.collectionView.delegate)
+        XCTAssertEqual(contentVC.collectionView.dataSource?.collectionView(contentVC.collectionView, numberOfItemsInSection: 0), 3)
     }
 
 }

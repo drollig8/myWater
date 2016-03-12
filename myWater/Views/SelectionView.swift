@@ -10,13 +10,13 @@ import UIKit
 
 class SelectionView: UIView, UIPageViewControllerDataSource {
     
-    var collectionView: UICollectionView!
-    var selectionDataProvider = SelectionDataProvider()
+    
+    
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initiateCollectionView()
+       
         
         self.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.3)
         
@@ -25,13 +25,7 @@ class SelectionView: UIView, UIPageViewControllerDataSource {
         
     }
     
-    private func initiateCollectionView() {
-        
-        let layout = UICollectionViewFlowLayout()
-        collectionView = UICollectionView(frame: CGRectMake(0, 0, 0, 0), collectionViewLayout: layout)
-        collectionView.dataSource = selectionDataProvider
-        collectionView.delegate = selectionDataProvider
-    }
+
     
     private func initiatePageViewController() {
  
@@ -55,6 +49,8 @@ class SelectionView: UIView, UIPageViewControllerDataSource {
     var currentStackVC: UIViewController!
     
     private func setupViewControllers() {
+        stackPageVC = stackVC
+        /*
         stackPageVC = [UIViewController]()
         for index in 0..<stackVC.count {
             let pageVC = UIViewController()
@@ -63,6 +59,7 @@ class SelectionView: UIView, UIPageViewControllerDataSource {
             stackVC[index].didMoveToParentViewController(pageVC)
             stackPageVC.append(pageVC)
         }
+*/
         currentStackVC = stackPageVC[stackStartLocation]
     }
     
@@ -77,10 +74,13 @@ class SelectionView: UIView, UIPageViewControllerDataSource {
 
     
     // nur zu Testzwecken...
-    private func viewControllerData() -> [UIViewController] {
-        let redVC = UIViewController()
+    
+
+    
+    private func viewControllerData() -> [ContentViewController] {
+        let redVC = ContentViewController()
         redVC.view.backgroundColor = UIColor.redColor()
-        let blueVC = UIViewController()
+        let blueVC = ContentViewController()
         blueVC.view.backgroundColor = UIColor.blueColor()
         return [redVC, blueVC]
     }
@@ -101,8 +101,23 @@ class SelectionView: UIView, UIPageViewControllerDataSource {
         }
         return stackPageVC[stackPageVC.indexOf(viewController)! + 1]
     }
-    
 
+}
+
+class ContentViewController: UIViewController {
+    var collectionView: UICollectionView!
+    var collectionDataProvider = SelectionDataProvider()
     
-    
+    override func viewDidLoad() {
+        initiateCollectionView()
+        self.view.addSubview(collectionView)
+    }
+    private func initiateCollectionView() {
+        
+        let layout = UICollectionViewFlowLayout()
+        collectionView = UICollectionView(frame: CGRectMake(0, 0, 100, 100), collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.grayColor()
+        collectionView.dataSource = collectionDataProvider
+        collectionView.delegate = collectionDataProvider
+    }
 }
