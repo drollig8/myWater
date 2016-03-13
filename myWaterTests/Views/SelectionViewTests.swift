@@ -45,7 +45,7 @@ class SelectionViewTests: XCTestCase {
     }
     
     func testSelectionViewHasSubviewPageViewController() {
-        XCTAssertEqual(sut.subviews.count,1)
+        XCTAssertEqual(sut.subviews.count,2 )
     }
 
     func testPageViewControlles_HasSameWidthAsSuperView() {
@@ -81,6 +81,22 @@ class SelectionViewTests: XCTestCase {
         let contentVC = sut.stackVC[0] as! ContentViewController
         XCTAssertNotNil(contentVC.collectionView.delegate)
         XCTAssertEqual(contentVC.collectionView.dataSource?.collectionView(contentVC.collectionView, numberOfItemsInSection: 0), 3)
+    }
+    
+    func testSUT_HasCloseButton() {
+        XCTAssertNotNil(sut.closeButton)
+    }
+    
+    func testSUTsCloseButton_HasTargetSelf() {
+        
+        guard let closeButton = sut.closeButton else { XCTFail(); return }
+        expectationForNotification("DismissSelectionView",
+            object: nil) { (notification) -> Bool in
+                return true
+        }
+        closeButton.sendActionsForControlEvents(.TouchUpInside)
+        waitForExpectationsWithTimeout(3, handler: nil)
+       
     }
     
 

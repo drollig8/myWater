@@ -47,7 +47,7 @@ class BeverageCell: UICollectionViewCell {
         //    imageView = UIImageView(x: 0, y: 0, image: UIImage(named: imageName)!, scaleToWidth: 128)
             imageView.image = UIImage(named: imageName)
             //imageView.contentMode = .ScaleAspectFit // Testen !!!
-            imageView.backgroundColor = UIColor.blueColor()
+            imageView.backgroundColor = UIColor.myWaterLightBlue()
            
         }
     }

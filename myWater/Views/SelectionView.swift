@@ -10,13 +10,24 @@ import UIKit
 
 class SelectionView: UIView, UIPageViewControllerDataSource {
   
+    var closeButton:UIButton!
+    //var mainViewController:MainViewController!
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.redColor()
+        self.backgroundColor = UIColor.myWaterLightBlue()
         initiatePageViewController()
+        setupNavigationBar()
     }
     
 
+    private func setupNavigationBar() {
+        let buttonFrame = CGRectMake(frame.width-40, 0, 40, 40)
+        closeButton = UIButton(frame: buttonFrame)
+        closeButton.backgroundColor = UIColor.redColor()
+        closeButton.imageView?.image = UIImage(named: "water")
+        self.addSubview(closeButton)
+        closeButton.addTarget(self, action: "dismiss", forControlEvents: .TouchUpInside)
+    }
     
     private func initiatePageViewController() {
  
@@ -81,6 +92,10 @@ class SelectionView: UIView, UIPageViewControllerDataSource {
             return nil
         }
         return stackPageVC[stackPageVC.indexOf(viewController)! + 1]
+    }
+    
+    func dismiss() {
+        NSNotificationCenter.defaultCenter().postNotificationName("DismissSelectionView", object: self)
     }
 
 }

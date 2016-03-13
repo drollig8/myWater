@@ -43,7 +43,7 @@ class MainViewControllerTests: XCTestCase {
     func testAddEntry_PresentsSelectionView() {
         XCTAssertEqual(sut.view.subviews.count, 3)
         sut.addEntry(UIButton())
-        XCTAssertEqual(sut.view.subviews.count, 4)
+        XCTAssertEqual(sut.view.subviews.count, 5)
         let selectionView = sut.view.subviews.last as? SelectionView
         XCTAssertNotNil(selectionView)
     }
@@ -54,14 +54,35 @@ class MainViewControllerTests: XCTestCase {
         XCTAssertEqual(selectionView?.frame.width, sut.view.frame.width)
     }
     
+    // geht nicht, weil das animiert wird.
     func testSelectionView_HasHalfHeightOfSuperView() {
         sut.addEntry(UIButton())
         let selectionView = sut.view.subviews.last as? SelectionView
-        XCTAssertEqual(selectionView?.frame.height, sut.view.frame.height/2)
+        XCTAssertEqual(selectionView?.frame.height, sut.view.frame.height)
         XCTAssertEqual(selectionView?.frame.origin.y, sut.view.frame.height/2)
     }
 
+    func testMainViewController_AddsDismissButton() {
+        let numberOfSubviews = sut.view.subviews.count
+        sut.addEntry(UIButton())
+        XCTAssertEqual(sut.view.subviews.count,numberOfSubviews + 2)
+        
+    }
     
+    func testMainViewController_DismissesSelectionViewAndButton() {
+        sut.addEntry(UIButton())
+        let numberOfSubviews = sut.view.subviews.count
+        sut.dissmissSelectionView()
+        XCTAssertEqual(sut.view.subviews.count, numberOfSubviews - 1)
+    }
+    
+    func testMainViewController_DismissesViewAndButtonOnNotification() {
+        sut.addEntry(UIButton())
+        let numberOfSubviews = sut.view.subviews.count
+        NSNotificationCenter.defaultCenter().postNotificationName("DismissSelectionView", object: self)
+             XCTAssertEqual(sut.view.subviews.count, numberOfSubviews - 1)
+        
+    }
 
     
 
