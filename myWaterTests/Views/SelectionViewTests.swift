@@ -45,7 +45,7 @@ class SelectionViewTests: XCTestCase {
     }
     
     func testSelectionViewHasSubviewPageViewController() {
-        XCTAssertEqual(sut.subviews.count,2 )
+        XCTAssertEqual(sut.subviews.count,4 )
     }
 
     func testPageViewControlles_HasSameWidthAsSuperView() {
@@ -97,6 +97,26 @@ class SelectionViewTests: XCTestCase {
         closeButton.sendActionsForControlEvents(.TouchUpInside)
         waitForExpectationsWithTimeout(3, handler: nil)
        
+    }
+    
+    func testSUT_HatInfoButton() {
+        XCTAssertNotNil(sut.infoButton)
+    }
+    
+    func testInfoButton_HasTargetSelf() {
+        
+        guard let infoButton = sut.infoButton else { XCTFail(); return }
+        expectationForNotification("InfoButtonSelected",
+            object: nil) { (notification) -> Bool in
+                return true
+        }
+        infoButton.sendActionsForControlEvents(.TouchUpInside)
+        waitForExpectationsWithTimeout(3, handler: nil)
+        
+    }
+
+    func testSUT_HasEinGetränkWählenLabel() {
+        XCTAssertNotNil(sut.titleLabel)
     }
     
 

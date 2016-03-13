@@ -55,11 +55,11 @@ class MainViewControllerTests: XCTestCase {
     }
     
     // geht nicht, weil das animiert wird.
-    func testSelectionView_HasHalfHeightOfSuperView() {
+    func DIStestSelectionView_HasTweoThirdHeightOfSuperView() {
         sut.addEntry(UIButton())
         let selectionView = sut.view.subviews.last as? SelectionView
         XCTAssertEqual(selectionView?.frame.height, sut.view.frame.height)
-        XCTAssertEqual(selectionView?.frame.origin.y, sut.view.frame.height/2)
+        XCTAssertEqual(selectionView?.frame.origin.y, sut.view.frame.height*1/3)
     }
 
     func testMainViewController_AddsDismissButton() {

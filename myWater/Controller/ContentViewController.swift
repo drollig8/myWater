@@ -13,30 +13,9 @@ class ContentViewController: UIViewController {
     var collectionView: UICollectionView!
     var layout: UICollectionViewFlowLayout!
     var collectionDataProvider = SelectionDataProvider()
+    let cellSize = CGSize(width: 80, height: 100)
     
-    
-    // We need these because we will never instantiate the VC from the storyboard.
-    /*
-    func setupView() {
-    }
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        setupView()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-    override func loadView() {
-        super.loadView()
-        initiateCollectionView()
-        self.view.addSubview(collectionView)
-    }
-    */
-    
-
     override func viewDidLoad() {
-  //      collectionView.dataSource = collectionDataProvider
         
         initiateCollectionView()
         self.view.addSubview(collectionView)
@@ -45,17 +24,16 @@ class ContentViewController: UIViewController {
     private func initiateCollectionView() {
         
         layout = UICollectionViewFlowLayout()
-        let cellSize = super.view.frame.width / 3 - 10
-        let sizeOfLabelUnderImage:CGFloat = 30
-        layout.itemSize = CGSize(width: cellSize, height: cellSize + sizeOfLabelUnderImage)
-   
-        collectionView = UICollectionView(frame: super.view.frame, collectionViewLayout: layout)
-      //  collectionView = UICollectionView(frame: CGRectMake(0, 0, 300, 250), collectionViewLayout: layout)
+        layout.sectionInset = UIEdgeInsetsMake(0, 25, 0, 35)
         
-        collectionView.backgroundColor = UIColor.grayColor()
+   
+        layout.itemSize = cellSize
+
+        collectionView = UICollectionView(frame: super.view.frame, collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.myWaterLightBlue()
         collectionView.dataSource = collectionDataProvider
         collectionView.delegate = collectionDataProvider
         collectionView.registerClass(BeverageCell.self, forCellWithReuseIdentifier: "Cell")
-        collectionView.backgroundColor = UIColor.yellowColor()
+  
     }
 }

@@ -12,10 +12,11 @@ class MainViewController: UIViewController {
     
     var selectionView:SelectionView!
     var dismissButton: UIButton!
+    let heightRatioCollectionViewToSuperView: CGFloat = 2/3
     
     @IBOutlet weak var addEntryButton: UIButton!
     @IBAction func addEntry(sender: UIButton) {
-        let frame = CGRectMake(0, super.view.frame.height,super.view.frame.width, super.view.frame.height)
+        let selectionFrame = CGRectMake(0, super.view.frame.height,super.view.frame.width, super.view.frame.height*heightRatioCollectionViewToSuperView)
         
 
         
@@ -24,11 +25,11 @@ class MainViewController: UIViewController {
         view.addSubview(dismissButton)
         
         // Animation ohne Test
-        selectionView = SelectionView(frame: frame)
+        selectionView = SelectionView(frame: selectionFrame)
 
         view.addSubview(selectionView)
-        UIView.animateWithDuration(1.0) { () -> Void in
-            self.selectionView.frame.origin.y = super.view.frame.height / 2 }
+        UIView.animateWithDuration(0.7) { () -> Void in
+            self.selectionView.frame.origin.y = self.view.frame.height - selectionFrame.height }
     
     }
     
@@ -42,7 +43,7 @@ class MainViewController: UIViewController {
     }
     func dissmissSelectionView() {
         // Animation ohne Test
-        UIView.animateWithDuration(1.0, animations: { () -> Void in
+        UIView.animateWithDuration(0.7, animations: { () -> Void in
             // animation
             self.selectionView?.frame.origin.y = super.view.frame.height
             }) { (result) -> Void in

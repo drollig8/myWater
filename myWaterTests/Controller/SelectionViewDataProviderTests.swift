@@ -68,6 +68,10 @@ class SelectionViewDataProviderTests: XCTestCase {
         XCTAssertTrue(cell is BeverageCell)
     }
     
+    func test_DataProviderHasValidItemManager() {
+        XCTAssertNotNil(sut.itemManager)
+    }
+    
     func test_ConfigCellGetsCalled() {
         let mockCollectionView = MockCollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: UICollectionViewFlowLayout())
         mockCollectionView.dataSource = sut
