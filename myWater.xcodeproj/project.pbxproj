@@ -29,6 +29,8 @@
 		6E15D04C1C94B6910063173B /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D04B1C94B6910063173B /* Extension+UIColor.swift */; };
 		6E15D05C1C959B2C0063173B /* BeverageManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D05B1C959B2C0063173B /* BeverageManagerTests.swift */; };
 		6E15D05E1C959B770063173B /* BeverageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D05D1C959B770063173B /* BeverageManager.swift */; };
+		6E82A72F1C96ED16006F2B67 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E82A72E1C96ED16006F2B67 /* AmountView.swift */; };
+		6E82A7311C96ED84006F2B67 /* AmountViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E82A7301C96ED84006F2B67 /* AmountViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		6E15D04B1C94B6910063173B /* Extension+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		6E15D05B1C959B2C0063173B /* BeverageManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeverageManagerTests.swift; path = Model/BeverageManagerTests.swift; sourceTree = "<group>"; };
 		6E15D05D1C959B770063173B /* BeverageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeverageManager.swift; path = Model/BeverageManager.swift; sourceTree = "<group>"; };
+		6E82A72E1C96ED16006F2B67 /* AmountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmountView.swift; path = Views/AmountView.swift; sourceTree = "<group>"; };
+		6E82A7301C96ED84006F2B67 /* AmountViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmountViewTests.swift; path = Views/AmountViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				6E15D0081C933F1C0063173B /* SelectionView.swift */,
+				6E82A72E1C96ED16006F2B67 /* AmountView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				6E15D00B1C933F500063173B /* SelectionViewTests.swift */,
+				6E82A7301C96ED84006F2B67 /* AmountViewTests.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -311,6 +317,7 @@
 			files = (
 				6E15D05E1C959B770063173B /* BeverageManager.swift in Sources */,
 				6E15D0441C9412D40063173B /* BeverageCell.swift in Sources */,
+				6E82A72F1C96ED16006F2B67 /* AmountView.swift in Sources */,
 				6E15D04C1C94B6910063173B /* Extension+UIColor.swift in Sources */,
 				6E15D0421C93FE5F0063173B /* ContentViewController.swift in Sources */,
 				6E15CFFE1C9338260063173B /* MainViewController.swift in Sources */,
@@ -330,6 +337,7 @@
 				6E15D0461C94143B0063173B /* BeverageCellTests.swift in Sources */,
 				6E15CFF31C9334430063173B /* WaterEntryTests.swift in Sources */,
 				6E15CFF71C9336650063173B /* BeverageTests.swift in Sources */,
+				6E82A7311C96ED84006F2B67 /* AmountViewTests.swift in Sources */,
 				6E15D00C1C933F500063173B /* SelectionViewTests.swift in Sources */,
 				6E15D05C1C959B2C0063173B /* BeverageManagerTests.swift in Sources */,
 				6E15D0481C9416ED0063173B /* ContentViewControllerTests.swift in Sources */,

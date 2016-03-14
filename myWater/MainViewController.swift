@@ -19,14 +19,16 @@ class MainViewController: UIViewController {
     var pokalButton:UIButton!
     var ideaButton:UIButton!
     var infoButton:UIButton!
+    var addEntryButton: UIButton!
     
     var heuteHastDuGetrunkenLabel:UILabel!
     var percentageLabel:UILabel!
     
-    @IBOutlet weak var addEntryButton: UIButton!
+    
     
     
     override func viewDidLoad() {
+
         layoutButtons()
         layoutLabels()
         subscribeForNotification()
@@ -41,11 +43,11 @@ class MainViewController: UIViewController {
     @IBAction func addEntry(sender: UIButton) {
         let selectionFrame = CGRectMake(0, super.view.frame.height,super.view.frame.width, super.view.frame.height*heightRatioCollectionViewToSuperView)
         
-
-        
         dismissButton = UIButton(frame: view.frame)
         dismissButton.addTarget(self, action: "dissmissSelectionView", forControlEvents: .TouchUpInside)
         view.addSubview(dismissButton)
+        
+
         
         // Animation ohne Test
         selectionView = SelectionView(frame: selectionFrame)
@@ -75,6 +77,15 @@ class MainViewController: UIViewController {
         infoButton = UIButton(frame: CGRect(x: 55 + 45 + xDistanceBetweenButtons + 45 + xDistanceBetweenButtons, y: 38, width: 45, height: 45))
         infoButton.setImage(UIImage(named: "main_info"), forState: .Normal)
         self.view.addSubview(infoButton)
+        
+        let xPos = self.view.frame.width / 2 - 100
+        addEntryButton = UIButton(frame: CGRect(x: xPos, y: 350, width: 200, height: 45))
+        addEntryButton.setTitle("Eintrag hinzufügen", forState: .Normal)
+        addEntryButton.addTarget(self, action: "addEntry:", forControlEvents: .TouchUpInside)
+        addEntryButton.backgroundColor = UIColor.myWaterTextColorDarkBlue()
+        addEntryButton.layer.cornerRadius = 5
+        addEntryButton.layer.borderWidth = 1
+        self.view.addSubview(addEntryButton)
     }
     
     private func layoutLabels() {
@@ -110,4 +121,22 @@ class MainViewController: UIViewController {
         dismissButton?.removeFromSuperview()
     }
     
+    @IBAction func amountTest(sender: AnyObject) {
+        
+        let selectionFrame = CGRectMake(0, super.view.frame.height,super.view.frame.width, super.view.frame.height*heightRatioCollectionViewToSuperView)
+        
+        dismissButton = UIButton(frame: view.frame)
+        dismissButton.addTarget(self, action: "dissmissSelectionView", forControlEvents: .TouchUpInside)
+        view.addSubview(dismissButton)
+        
+        
+        
+        // Animation ohne Test
+        let amountView = AmountView(frame: selectionFrame)
+        
+        view.addSubview(amountView)
+        UIView.animateWithDuration(0.7) { () -> Void in
+            amountView.frame.origin.y = self.view.frame.height - selectionFrame.height }
+        
+    }
 }

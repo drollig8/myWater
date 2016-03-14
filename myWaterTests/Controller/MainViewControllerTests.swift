@@ -35,8 +35,6 @@ class MainViewControllerTests: XCTestCase {
 
         XCTAssertNotNil(sut.addEntryButton)
         guard let addEntryButton = sut.addEntryButton else {fatalError()}
-        
-        print(addEntryButton.actionsForTarget(addEntryButton, forControlEvent: .TouchUpInside))
         XCTAssertTrue(addEntryButton.targetForAction("addEntry:", withSender: self) === sut)
     }
     
