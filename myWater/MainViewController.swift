@@ -11,7 +11,7 @@ import UIKit
 let testColor = UIColor.redColor().colorWithAlphaComponent(0.2)
 class MainViewController: UIViewController {
     
-    var selectionView:UIView!
+    var selectionView:SelectionView!
     var amountView: UIView!
     
     var dismissButton: UIButton!
@@ -64,6 +64,8 @@ class MainViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "dismissAmountView", name: "DismissAmountView", object: nil)
     }
     
+    
+
     func showAmountView() {
        
         // Animation ohne Test - place amount view add left side

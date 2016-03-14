@@ -11,7 +11,7 @@ import UIKit
 class SelectionDataProvider: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
 
     let itemManager = BeverageManager()
-    
+    var page: Int!
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 3
     }
@@ -33,7 +33,9 @@ class SelectionDataProvider: NSObject, UICollectionViewDataSource, UICollectionV
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // TODO Wir müssen auch mitgeben, auf welcher PageViewSeite wir waren!! Nein, das weiß der ViewCOntrooler selbst. der Denn ViewController 
         // pushed den nächsten Screen !
-        NSNotificationCenter.defaultCenter().postNotificationName("ItemSelectedNotification", object: self, userInfo: ["index":indexPath.row])
+        
+        page = 0
+        NSNotificationCenter.defaultCenter().postNotificationName("ItemSelectedNotification", object: self, userInfo: ["index":indexForIndexPath(indexPath),"page":page])
     }
     
 

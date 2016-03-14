@@ -119,11 +119,13 @@ class SelectionView: UIView, UIPageViewControllerDataSource {
     
 
     
-    private func viewControllerData() -> [ContentViewController] {
+    func viewControllerData() -> [ContentViewController] {
         let redVC = ContentViewController()
+        redVC.page = 0
         redVC.view.backgroundColor = UIColor.redColor()
         let blueVC = ContentViewController()
         blueVC.view.backgroundColor = UIColor.blueColor()
+        blueVC.page = 1
         return [redVC, blueVC]
     }
 

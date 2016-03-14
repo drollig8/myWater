@@ -120,12 +120,12 @@ class SelectionViewTests: XCTestCase {
         XCTAssertNotNil(sut.titleLabel)
     }
     
-    // MARK: Segues
     
-    func testSelectionViewPresentsAmountView() {
-        
+    func testSelectionViewsContentViewControllers_HavePageNumber() {
+        XCTAssertEqual(sut.viewControllerData()[0].page, 0)
+        XCTAssertEqual(sut.viewControllerData()[1].page, 1)
     }
-
+  
 }
 
 
