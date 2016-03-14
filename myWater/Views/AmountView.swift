@@ -13,6 +13,7 @@ class AmountView:UIView {
     var okButton: UIButton!
     var backButton: UIButton!
     var amountPicker:UIPickerView!
+    var amountPickerDataProvider = AmountPickerDataProvider()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,32 +36,47 @@ class AmountView:UIView {
         okButton.imageEdgeInsets = UIEdgeInsetsMake(25,25,25,25)
         self.addSubview(okButton)
         okButton.addTarget(self, action: "ok", forControlEvents: .TouchUpInside)
-        okButton.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.2)
+       // okButton.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.2)
     }
     
     private func setupBackButton() {
         let buttonFrame = CGRectMake(0, 0, 70, 70)
-        backButton = UIButton(frame: buttonFrame)
-        let image = UIImage(named: "back")
+        
+        // Es funktioniert tatsächlich die Tintcolor
+        
+      //  backButton = UIButton(frame: buttonFrame)
+        backButton = UIButton(type: UIButtonType.ContactAdd)
+        backButton.frame = buttonFrame
+        let image = UIImage(named: "backBlack")
         let imageScaled = image
         backButton.setImage(imageScaled, forState: .Normal)
+        backButton.tintColor = UIColor.myWaterTextColorDarkBlue().colorWithAlphaComponent(0.5) // 0.1 für ausgegraut, 0.5 für wählbahr
+        
         backButton.imageEdgeInsets = UIEdgeInsetsMake(25,25,25,25)
         self.addSubview(backButton)
         backButton.addTarget(self, action: "back", forControlEvents: .TouchUpInside)
-        backButton.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.2)
+
     }
+    
+    
     
     // passt ganz gut mit der Höhe des Pickers
     private func setupAmountPicker() {
-        amountPicker = UIPickerView(frame: CGRect(x: 0,y: self.frame.height - 200, width: self.frame.width, height: 180))
+        amountPicker = UIPickerView(frame: CGRect(x: 0,y: self.frame.height - 200, width: self.frame.width, height: 200))
         amountPicker.backgroundColor = testColor
+        amountPicker.dataSource = amountPickerDataProvider
+        amountPicker.delegate = amountPickerDataProvider
         self.addSubview(amountPicker)
     }
+    
+
     
     func ok() {
     }
     
     func back() {
+        NSNotificationCenter.defaultCenter().postNotificationName("DismissAmountView", object: self)
     }
 }
+
 

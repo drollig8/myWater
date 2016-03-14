@@ -120,6 +120,11 @@ class SelectionViewTests: XCTestCase {
         XCTAssertNotNil(sut.titleLabel)
     }
     
+    // MARK: Segues
+    
+    func testSelectionViewPresentsAmountView() {
+        
+    }
 
 }
 

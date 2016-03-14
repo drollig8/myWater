@@ -81,7 +81,7 @@ class MainViewControllerTests: XCTestCase {
         sut.addEntry(UIButton())
         let numberOfSubviews = sut.view.subviews.count
         NSNotificationCenter.defaultCenter().postNotificationName("DismissSelectionView", object: self)
-             XCTAssertEqual(sut.view.subviews.count, numberOfSubviews - 1)
+        XCTAssertEqual(sut.view.subviews.count, numberOfSubviews - 1)
         
     }
     
@@ -109,7 +109,28 @@ class MainViewControllerTests: XCTestCase {
     func test_HasPercentageLabel() {
         XCTAssertNotNil(sut.percentageLabel)
     }
-
     
+    // MARK: - Segueing
+    
+    func testMainViewController_PresentsAmountViewWhenItemWasSelected() {
+        sut.addEntry(UIButton())
+        guard let _ = sut.view.subviews.last as? SelectionView else {fatalError()}
+        NSNotificationCenter.defaultCenter().postNotificationName("ItemSelectedNotification", object: self)
+        let amountView = sut.view.subviews.last as? AmountView
+        XCTAssertNotNil(amountView)
+    }
+    
+    // nicht testbar, weil die view erst im completion handler entfernt wird. Wir müssten die UIAnimation überMocken.
+    func DIStestMainViewController_DismissesAmountView() {
 
+        
+        sut.amountView = UIView()
+        sut.view.addSubview(sut.amountView)
+        sut.selectionView = UIView()
+        sut.view.addSubview(sut.selectionView)
+        let numberOfSubviews = sut.view.subviews.count
+        sut.dismissAmountView()
+        //NSNotificationCenter.defaultCenter().postNotificationName("DismissAmountView", object: self)
+        XCTAssertEqual(sut.view.subviews.count, numberOfSubviews - 1)
+    }
 }

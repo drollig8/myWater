@@ -31,6 +31,7 @@
 		6E15D05E1C959B770063173B /* BeverageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D05D1C959B770063173B /* BeverageManager.swift */; };
 		6E82A72F1C96ED16006F2B67 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E82A72E1C96ED16006F2B67 /* AmountView.swift */; };
 		6E82A7311C96ED84006F2B67 /* AmountViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E82A7301C96ED84006F2B67 /* AmountViewTests.swift */; };
+		6EB236AD1C973A54001AED14 /* AmountPickerDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB236AC1C973A54001AED14 /* AmountPickerDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		6E15D05D1C959B770063173B /* BeverageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeverageManager.swift; path = Model/BeverageManager.swift; sourceTree = "<group>"; };
 		6E82A72E1C96ED16006F2B67 /* AmountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmountView.swift; path = Views/AmountView.swift; sourceTree = "<group>"; };
 		6E82A7301C96ED84006F2B67 /* AmountViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmountViewTests.swift; path = Views/AmountViewTests.swift; sourceTree = "<group>"; };
+		6EB236AC1C973A54001AED14 /* AmountPickerDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountPickerDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 			children = (
 				6E15D0081C933F1C0063173B /* SelectionView.swift */,
 				6E82A72E1C96ED16006F2B67 /* AmountView.swift */,
+				6EB236AC1C973A54001AED14 /* AmountPickerDataProvider.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				6E82A72F1C96ED16006F2B67 /* AmountView.swift in Sources */,
 				6E15D04C1C94B6910063173B /* Extension+UIColor.swift in Sources */,
 				6E15D0421C93FE5F0063173B /* ContentViewController.swift in Sources */,
+				6EB236AD1C973A54001AED14 /* AmountPickerDataProvider.swift in Sources */,
 				6E15CFFE1C9338260063173B /* MainViewController.swift in Sources */,
 				6E15CFCF1C9333A00063173B /* ViewController.swift in Sources */,
 				6E15CFCD1C9333A00063173B /* AppDelegate.swift in Sources */,

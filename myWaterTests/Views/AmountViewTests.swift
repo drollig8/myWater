@@ -49,7 +49,20 @@ class AmountViewTests: XCTestCase {
     func testSUT_HasAmountPicker() {
         XCTAssertNotNil(sut.amountPicker)
     }
+    
+    func testAmountPicker_HasDataSourceAndDelegate() {
+        XCTAssertNotNil(sut.amountPicker.dataSource)
+        XCTAssertNotNil(sut.amountPicker.delegate)
+    }
 
+    
+    func testAmountPickerContainsCorrectValues() {
+        let picker = sut.amountPicker
+        let row = sut.amountPickerDataProvider.pickerView(picker, titleForRow: 0, forComponent: 0)
+        XCTAssertEqual(row, "30ml (espresso)")
+    }
+
+    
 
 
 }

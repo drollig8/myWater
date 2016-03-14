@@ -11,7 +11,9 @@ import UIKit
 let testColor = UIColor.redColor().colorWithAlphaComponent(0.2)
 class MainViewController: UIViewController {
     
-    var selectionView:SelectionView!
+    var selectionView:UIView!
+    var amountView: UIView!
+    
     var dismissButton: UIButton!
     let heightRatioCollectionViewToSuperView: CGFloat = 2/3
     
@@ -23,8 +25,6 @@ class MainViewController: UIViewController {
     
     var heuteHastDuGetrunkenLabel:UILabel!
     var percentageLabel:UILabel!
-    
-    
     
     
     override func viewDidLoad() {
@@ -60,6 +60,39 @@ class MainViewController: UIViewController {
     
     private func subscribeForNotification() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "dissmissSelectionView", name: "DismissSelectionView", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAmountView", name: "ItemSelectedNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "dismissAmountView", name: "DismissAmountView", object: nil)
+    }
+    
+    func showAmountView() {
+       
+        // Animation ohne Test - place amount view add left side
+        let amountViewFrame = CGRectMake(view.frame.width, view.frame.height - view.frame.height*heightRatioCollectionViewToSuperView,view.frame.width, view.frame.height*heightRatioCollectionViewToSuperView)
+        amountView = AmountView(frame: amountViewFrame)
+        
+        view.addSubview(amountView)
+        UIView.animateWithDuration(0.7) { () -> Void in
+            self.amountView.frame.origin.x = 0
+        
+            // at the same time - no test with this - we need to push the selectionView out of the way
+            self.selectionView.frame.origin.x = -self.selectionView.frame.width
+        }
+    }
+    
+    func dismissAmountView() {
+        
+        // Animation ohne Test - move to right side und remove amountView
+        
+        let animation = { () -> Void in
+            self.amountView.frame.origin.x = self.amountView.frame.width
+            self.selectionView.frame.origin.x = 0
+        }
+        
+        let completion = {(bool:Bool) -> Void in
+            self.amountView.removeFromSuperview()
+        }
+        UIView.animateWithDuration(0.7, animations: animation, completion: completion)
+
     }
     
     private func layoutButtons() {
