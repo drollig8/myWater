@@ -58,7 +58,8 @@ class SelectionDataProvider: NSObject, UICollectionViewDataSource, UICollectionV
 
 //TODO:
 
-
+/*
 1. dim main screen (put something on there first)
 2. recognize second screen
 3. implement next view (amountselection)
+*/

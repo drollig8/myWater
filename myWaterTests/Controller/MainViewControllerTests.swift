@@ -41,9 +41,12 @@ class MainViewControllerTests: XCTestCase {
     }
     
     func testAddEntry_PresentsSelectionView() {
-        XCTAssertEqual(sut.view.subviews.count, 3)
+        let coundViewsBefore = sut.view.subviews.count
+   
         sut.addEntry(UIButton())
-        XCTAssertEqual(sut.view.subviews.count, 5)
+        let coundViewsAfter = sut.view.subviews.count
+        XCTAssertEqual(coundViewsBefore + 2, coundViewsAfter)
+   
         let selectionView = sut.view.subviews.last as? SelectionView
         XCTAssertNotNil(selectionView)
     }
@@ -82,6 +85,31 @@ class MainViewControllerTests: XCTestCase {
         NSNotificationCenter.defaultCenter().postNotificationName("DismissSelectionView", object: self)
              XCTAssertEqual(sut.view.subviews.count, numberOfSubviews - 1)
         
+    }
+    
+    
+    // MARK: - Button Layout
+    
+    // Tipp: Mach das programmatisch! Das ist viel, viel besser !! - erstmal brauchen wir keine Action.
+    
+    func test_HasPokalButton() {
+        XCTAssertNotNil(sut.pokalButton)
+    }
+    
+    func test_HasIdeaButton() {
+        XCTAssertNotNil(sut.ideaButton)
+    }
+    
+    func test_HasInfoButton() {
+        XCTAssertNotNil(sut.infoButton)
+    }
+    
+    func test_HasLabelHeuteHastDuGetrunken() {
+        XCTAssertNotNil(sut.heuteHastDuGetrunkenLabel)
+    }
+    
+    func test_HasPercentageLabel() {
+        XCTAssertNotNil(sut.percentageLabel)
     }
 
     
