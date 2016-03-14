@@ -14,6 +14,16 @@ class AmountView:UIView {
     var backButton: UIButton!
     var amountPicker:UIPickerView!
     var amountPickerDataProvider = AmountPickerDataProvider()
+    var imageView:UIImageView!
+    var itemInfo:(item:Int, page:Int)? {
+        didSet {
+            let beverage = BeverageManager().itemAtIndex(itemInfo!.item, page: itemInfo!.page)
+            if let name = beverage.imageName {
+                setupImageView(imageNamed: name)
+            }
+            
+        }
+    } // kann darüber über jede Instanz des BeverageManagers das Beverage bekommen.
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,6 +79,15 @@ class AmountView:UIView {
         self.addSubview(amountPicker)
     }
     
+    private func setupImageView(imageNamed imageName:String) {
+        // TODO: calculate this value:
+        let borderDistance = 50
+        let imageFrame = CGRect(x: borderDistance, y: 100, width: 60, height: 60)
+        imageView = UIImageView(frame: imageFrame)
+        imageView.backgroundColor = testColor
+        imageView.image = UIImage(named: imageName)
+        self.addSubview(imageView)
+    }
 
     
     func ok() {

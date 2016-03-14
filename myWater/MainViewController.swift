@@ -74,10 +74,17 @@ class MainViewController: UIViewController {
         
         view.addSubview(amountView)
         UIView.animateWithDuration(0.7) { () -> Void in
-            self.amountView.frame.origin.x = 0
+            
+            if let amountView = self.amountView {
+                amountView.frame.origin.x = 0
+            }
+            
         
             // at the same time - no test with this - we need to push the selectionView out of the way
-            self.selectionView.frame.origin.x = -self.selectionView.frame.width
+            if let selectionView = self.selectionView {
+                selectionView.frame.origin.x = -self.selectionView.frame.width
+            }
+
         }
     }
     

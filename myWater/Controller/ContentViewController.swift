@@ -9,16 +9,15 @@
 import UIKit
 
 class ContentViewController: UIViewController {
-    
-    var page: Int!
+
     var collectionView: UICollectionView!
     var layout: UICollectionViewFlowLayout!
-    var collectionDataProvider = SelectionDataProvider()
+    var collectionDataProvider: SelectionDataProvider!
     let cellSize = CGSize(width: 80, height: 100)
     
-    
+
     override func viewDidLoad() {
-        
+
         initiateCollectionView()
         self.view.addSubview(collectionView)
 
@@ -35,7 +34,6 @@ class ContentViewController: UIViewController {
         collectionView.backgroundColor = UIColor.myWaterLightBlue()
         collectionView.dataSource = collectionDataProvider
         collectionView.delegate = collectionDataProvider
-        collectionDataProvider.page = page
         collectionView.registerClass(BeverageCell.self, forCellWithReuseIdentifier: "Cell")
   
     }

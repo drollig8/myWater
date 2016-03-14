@@ -122,8 +122,8 @@ class SelectionViewTests: XCTestCase {
     
     
     func testSelectionViewsContentViewControllers_HavePageNumber() {
-        XCTAssertEqual(sut.viewControllerData()[0].page, 0)
-        XCTAssertEqual(sut.viewControllerData()[1].page, 1)
+        XCTAssertEqual(sut.viewControllerData()[0].collectionDataProvider.page, 0)
+        XCTAssertEqual(sut.viewControllerData()[1].collectionDataProvider.page, 1)
     }
   
 }

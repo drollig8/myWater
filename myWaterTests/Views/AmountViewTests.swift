@@ -62,7 +62,13 @@ class AmountViewTests: XCTestCase {
         XCTAssertEqual(row, "30ml (espresso)")
     }
 
-    
+    func testAmountViewSetsLabel_WhenItemInfoGetsSet() {
+        sut.itemInfo = (item: 2, page:0)
+        let beverage = BeverageManager().itemAtIndex(2, page: 0)
+        let imageName = beverage.imageName
+        XCTAssertEqual(sut.imageView.image, UIImage(named: imageName!))
+        
+    }
 
 
 }

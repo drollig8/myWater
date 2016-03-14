@@ -32,7 +32,7 @@ class SelectionViewDataProviderTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = SelectionDataProvider()
+        sut = SelectionDataProvider(page:0)
         let layout = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: CGRectMake(0, 0, 100, 100), collectionViewLayout: layout)
         collectionView.registerClass(BeverageCell.self, forCellWithReuseIdentifier: "Cell")
@@ -82,14 +82,20 @@ class SelectionViewDataProviderTests: XCTestCase {
     }
     
     func testSelectingACell_SendsNotification() {
+        sut = SelectionDataProvider(page:7)
+        
         expectationForNotification("ItemSelectedNotification",
             object: nil) { (notification) -> Bool in
                 
                 guard let index = notification.userInfo?["index"] as? Int else { return false }
-                return index == 0
+                guard let page = notification.userInfo?["page"] as? Int else { return false }
+                if index == 4 && page == 7 {
+                    return true
+                } else {
+                    return false
+                }
         }
-        sut.collectionView(collectionView, didSelectItemAtIndexPath: NSIndexPath(forItem: 0, inSection: 0))
-       // collectionView.delegate?.collectionView!(collectionView, didSelectItemAtIndexPath: NSIndexPath(forItem: 0, inSection: 0))
+        sut.collectionView(collectionView, didSelectItemAtIndexPath: NSIndexPath(forItem: 1, inSection: 1))
         waitForExpectationsWithTimeout(3, handler: nil)
     }
     
