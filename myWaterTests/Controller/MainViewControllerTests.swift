@@ -139,11 +139,23 @@ class MainViewControllerTests: XCTestCase {
     }
 
     
-    /*
+    // WIE KANN ICH DAS TESTEN????
     func testWhenReceivingOkValue_DismissAmoundAndSelectionView() {
+        class MockAmountView:AmountView {
+            var didCallRemoveFromSuperView = false
+            private override func removeFromSuperview() {
+                didCallRemoveFromSuperView = true
+            }
+        }
+        let mockAmountView = MockAmountView()
+        sut.amountView = mockAmountView
+        expectationForNotification("ValueEnteredNotification", object: nil) { (notification) -> Bool in
+            mockAmountView.didCallRemoveFromSuperView
+        }
+        waitForExpectationsWithTimeout(3, handler: nil)
         
     }
-   */
+   
     
     //TODOO !!!
     func DIStestMainViewController_PresentsAmountViewWhenItemWasSelected() {

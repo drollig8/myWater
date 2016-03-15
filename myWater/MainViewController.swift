@@ -103,10 +103,20 @@ class MainViewController: UIViewController {
             let entry = Entry(date: NSDate(), beverage: Beverage(name: "TESTE"), amount: amount)
             entryManager.addEntry(entry)
         }
+        selectionView?.removeFromSuperview()
+        
+        dismissAmountAndSlectionView()
     }
     
     
-    
+    func dismissAmountAndSlectionView() {
+        selectionView?.removeFromSuperview()
+        UIView.animateWithDuration(0.7, animations: { () -> Void in
+            self.amountView.frame.origin.y = self.view.frame.height
+            }) { (bool) -> Void in
+                self.amountView.removeFromSuperview()
+        }
+    }
     
     
     

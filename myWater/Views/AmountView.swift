@@ -190,7 +190,7 @@ class AmountView:UIView {
     }
     
     var imageLabelFrame:CGRect {
-        return CGRect(x: 70, y: 128, width: 65, height: 25)
+        return CGRect(x: 60, y: 128, width: 75, height: 25)
     }
     
     var valueTextFieldFrame:CGRect {
