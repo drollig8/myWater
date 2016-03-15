@@ -69,6 +69,29 @@ class AmountViewTests: XCTestCase {
         XCTAssertEqual(sut.imageView.image, UIImage(named: imageName!))
         
     }
+    
+    func testAmountView_HasSegmentedControl() {
+        XCTAssertNotNil(sut.segmentedControl)
+    }
 
+    func testSegmentedControl_HasValues() {
+        XCTAssertEqual(sut.segmentedControl.titleForSegmentAtIndex(0), "Wählen")
+        XCTAssertEqual(sut.segmentedControl.titleForSegmentAtIndex(1), "Mein")
+    }
+    
+    func testSegmentedControl_HasActionWithTargetSelf() {
+        guard let segmentedControl = sut.segmentedControl else {fatalError()}
+        XCTAssertTrue(segmentedControl.targetForAction("segmentChanged", withSender: self) === sut)
+    }
+    
+    func testActionSegmentChangedExists() {
+        sut.segmentChanged()
+    }
+    
+    func testSelectionOfMein_ShowInputTextField() {
+        sut.segmentedControl.selectedSegmentIndex = 1
+        sut.segmentChanged()
+        XCTAssertTrue(sut.valueTextField.enabled)
+    }
 
 }

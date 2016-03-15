@@ -15,19 +15,18 @@ class ContentViewController: UIViewController {
     var collectionDataProvider: SelectionDataProvider!
     let cellSize = CGSize(width: 80, height: 100)
     
-
     override func viewDidLoad() {
 
         initiateCollectionView()
         self.view.addSubview(collectionView)
 
     }
+    
     private func initiateCollectionView() {
         
         layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsetsMake(0, 25, 0, 35)
         
-   
         layout.itemSize = cellSize
 
         collectionView = UICollectionView(frame: super.view.frame, collectionViewLayout: layout)

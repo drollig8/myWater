@@ -20,12 +20,9 @@ class SelectionDataProvider: NSObject, UICollectionViewDataSource, UICollectionV
         return 3
     }
     
-    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
-    
-    
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
        
@@ -35,18 +32,10 @@ class SelectionDataProvider: NSObject, UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        // TODO Wir müssen auch mitgeben, auf welcher PageViewSeite wir waren!! Nein, das weiß der ViewCOntrooler selbst. der Denn ViewController 
-        // pushed den nächsten Screen !
-        
-        //NSNotificationCenter.defaultCenter().postNotificationName("ItemSelectedNotification", object: self, userInfo: ["index":indexForIndexPath(indexPath),"page":page])
-        
-        // TODO: // müssen wir nocht testen, die Userinfo stimmt nicht.
         
         NSNotificationCenter.defaultCenter().postNotificationName("ItemSelectedNotification", object: self, userInfo: ["index":indexForIndexPath(indexPath),"page":page])
     }
     
-
-    // das geht better
     private func indexForIndexPath(indexPath: NSIndexPath) -> Int {
         switch indexPath {
             case NSIndexPath(forItem: 0, inSection: 0): return 0
@@ -62,13 +51,3 @@ class SelectionDataProvider: NSObject, UICollectionViewDataSource, UICollectionV
         }
     }
 }
-
-
-
-//TODO:
-
-/*
-1. dim main screen (put something on there first)
-2. recognize second screen
-3. implement next view (amountselection)
-*/

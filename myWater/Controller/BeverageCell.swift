@@ -31,23 +31,21 @@ class BeverageCell: UICollectionViewCell {
     
     override func layoutSubviews() {
 
-
-
         self.addSubview(textLabel)
         self.addSubview(imageView)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-    
     func configureCellWithItem(item: Beverage) {
-        print(item.name)
+    
         textLabel.text = item.name
         if let imageName = item.imageName {
             imageView.image = UIImage(named: imageName)
             imageView.backgroundColor = UIColor.myWaterLightBlue()
         }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
     }
     
 
