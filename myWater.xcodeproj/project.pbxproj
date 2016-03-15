@@ -12,8 +12,8 @@
 		6E15CFD21C9333A00063173B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E15CFD01C9333A00063173B /* Main.storyboard */; };
 		6E15CFD41C9333A00063173B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E15CFD31C9333A00063173B /* Assets.xcassets */; };
 		6E15CFD71C9333A00063173B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E15CFD51C9333A00063173B /* LaunchScreen.storyboard */; };
-		6E15CFF31C9334430063173B /* WaterEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFF21C9334430063173B /* WaterEntryTests.swift */; };
-		6E15CFF51C93349E0063173B /* WaterEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFF41C93349E0063173B /* WaterEntry.swift */; };
+		6E15CFF31C9334430063173B /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFF21C9334430063173B /* EntryTests.swift */; };
+		6E15CFF51C93349E0063173B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFF41C93349E0063173B /* Entry.swift */; };
 		6E15CFF71C9336650063173B /* BeverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFF61C9336650063173B /* BeverageTests.swift */; };
 		6E15CFF91C93368F0063173B /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFF81C93368F0063173B /* Beverage.swift */; };
 		6E15CFFE1C9338260063173B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15CFFD1C9338260063173B /* MainViewController.swift */; };
@@ -29,6 +29,10 @@
 		6E15D04C1C94B6910063173B /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D04B1C94B6910063173B /* Extension+UIColor.swift */; };
 		6E15D05C1C959B2C0063173B /* BeverageManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D05B1C959B2C0063173B /* BeverageManagerTests.swift */; };
 		6E15D05E1C959B770063173B /* BeverageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15D05D1C959B770063173B /* BeverageManager.swift */; };
+		6E15EC7E1C9890A5006C0DED /* EntryManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15EC7D1C9890A5006C0DED /* EntryManagerTests.swift */; };
+		6E15EC801C989127006C0DED /* EntryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15EC7F1C989127006C0DED /* EntryManager.swift */; };
+		6E15EC821C98A294006C0DED /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15EC811C98A294006C0DED /* DateHelperTests.swift */; };
+		6E15EC841C98A29E006C0DED /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15EC831C98A29E006C0DED /* DateHelper.swift */; };
 		6E82A72F1C96ED16006F2B67 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E82A72E1C96ED16006F2B67 /* AmountView.swift */; };
 		6E82A7311C96ED84006F2B67 /* AmountViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E82A7301C96ED84006F2B67 /* AmountViewTests.swift */; };
 		6EB236AD1C973A54001AED14 /* AmountPickerDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB236AC1C973A54001AED14 /* AmountPickerDataProvider.swift */; };
@@ -54,8 +58,8 @@
 		6E15CFD81C9333A00063173B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E15CFDD1C9333A00063173B /* myWaterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myWaterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E15CFE31C9333A00063173B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6E15CFF21C9334430063173B /* WaterEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaterEntryTests.swift; path = Model/WaterEntryTests.swift; sourceTree = "<group>"; };
-		6E15CFF41C93349E0063173B /* WaterEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WaterEntry.swift; path = Model/WaterEntry.swift; sourceTree = "<group>"; };
+		6E15CFF21C9334430063173B /* EntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryTests.swift; path = Model/EntryTests.swift; sourceTree = "<group>"; };
+		6E15CFF41C93349E0063173B /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = Model/Entry.swift; sourceTree = "<group>"; };
 		6E15CFF61C9336650063173B /* BeverageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeverageTests.swift; path = Model/BeverageTests.swift; sourceTree = "<group>"; };
 		6E15CFF81C93368F0063173B /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Beverage.swift; path = Model/Beverage.swift; sourceTree = "<group>"; };
 		6E15CFFD1C9338260063173B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +75,10 @@
 		6E15D04B1C94B6910063173B /* Extension+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		6E15D05B1C959B2C0063173B /* BeverageManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeverageManagerTests.swift; path = Model/BeverageManagerTests.swift; sourceTree = "<group>"; };
 		6E15D05D1C959B770063173B /* BeverageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeverageManager.swift; path = Model/BeverageManager.swift; sourceTree = "<group>"; };
+		6E15EC7D1C9890A5006C0DED /* EntryManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryManagerTests.swift; path = Model/EntryManagerTests.swift; sourceTree = "<group>"; };
+		6E15EC7F1C989127006C0DED /* EntryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryManager.swift; path = Model/EntryManager.swift; sourceTree = "<group>"; };
+		6E15EC811C98A294006C0DED /* DateHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
+		6E15EC831C98A29E006C0DED /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		6E82A72E1C96ED16006F2B67 /* AmountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmountView.swift; path = Views/AmountView.swift; sourceTree = "<group>"; };
 		6E82A7301C96ED84006F2B67 /* AmountViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmountViewTests.swift; path = Views/AmountViewTests.swift; sourceTree = "<group>"; };
 		6EB236AC1C973A54001AED14 /* AmountPickerDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountPickerDataProvider.swift; sourceTree = "<group>"; };
@@ -144,6 +152,7 @@
 				6E15CFD31C9333A00063173B /* Assets.xcassets */,
 				6E15CFD51C9333A00063173B /* LaunchScreen.storyboard */,
 				6E15CFD81C9333A00063173B /* Info.plist */,
+				6E15EC831C98A29E006C0DED /* DateHelper.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -152,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				6E15CFE31C9333A00063173B /* Info.plist */,
+				6E15EC811C98A294006C0DED /* DateHelperTests.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -159,7 +169,8 @@
 		6E15CFEE1C9333F20063173B /* Modell */ = {
 			isa = PBXGroup;
 			children = (
-				6E15CFF41C93349E0063173B /* WaterEntry.swift */,
+				6E15CFF41C93349E0063173B /* Entry.swift */,
+				6E15EC7F1C989127006C0DED /* EntryManager.swift */,
 				6E15CFF81C93368F0063173B /* Beverage.swift */,
 				6E15D05D1C959B770063173B /* BeverageManager.swift */,
 			);
@@ -169,7 +180,8 @@
 		6E15CFEF1C9333F80063173B /* Modell */ = {
 			isa = PBXGroup;
 			children = (
-				6E15CFF21C9334430063173B /* WaterEntryTests.swift */,
+				6E15CFF21C9334430063173B /* EntryTests.swift */,
+				6E15EC7D1C9890A5006C0DED /* EntryManagerTests.swift */,
 				6E15CFF61C9336650063173B /* BeverageTests.swift */,
 				6E15D05B1C959B2C0063173B /* BeverageManagerTests.swift */,
 			);
@@ -335,8 +347,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E15EC841C98A29E006C0DED /* DateHelper.swift in Sources */,
 				6E15D05E1C959B770063173B /* BeverageManager.swift in Sources */,
 				6E15D0441C9412D40063173B /* BeverageCell.swift in Sources */,
+				6E15EC801C989127006C0DED /* EntryManager.swift in Sources */,
 				6E82A72F1C96ED16006F2B67 /* AmountView.swift in Sources */,
 				6E15D04C1C94B6910063173B /* Extension+UIColor.swift in Sources */,
 				6E15D0421C93FE5F0063173B /* ContentViewController.swift in Sources */,
@@ -345,7 +359,7 @@
 				6E15CFCF1C9333A00063173B /* ViewController.swift in Sources */,
 				6E15CFCD1C9333A00063173B /* AppDelegate.swift in Sources */,
 				6E15CFF91C93368F0063173B /* Beverage.swift in Sources */,
-				6E15CFF51C93349E0063173B /* WaterEntry.swift in Sources */,
+				6E15CFF51C93349E0063173B /* Entry.swift in Sources */,
 				6E15D0091C933F1C0063173B /* SelectionView.swift in Sources */,
 				6E15D00E1C9347560063173B /* SelectionDataProvider.swift in Sources */,
 			);
@@ -356,12 +370,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E15D0461C94143B0063173B /* BeverageCellTests.swift in Sources */,
-				6E15CFF31C9334430063173B /* WaterEntryTests.swift in Sources */,
+				6E15CFF31C9334430063173B /* EntryTests.swift in Sources */,
 				6E15CFF71C9336650063173B /* BeverageTests.swift in Sources */,
 				6E82A7311C96ED84006F2B67 /* AmountViewTests.swift in Sources */,
 				6E15D00C1C933F500063173B /* SelectionViewTests.swift in Sources */,
 				6E15D05C1C959B2C0063173B /* BeverageManagerTests.swift in Sources */,
+				6E15EC7E1C9890A5006C0DED /* EntryManagerTests.swift in Sources */,
 				6E15D0481C9416ED0063173B /* ContentViewControllerTests.swift in Sources */,
+				6E15EC821C98A294006C0DED /* DateHelperTests.swift in Sources */,
 				6E15D0101C9348EA0063173B /* SelectionViewDataProviderTests.swift in Sources */,
 				6E15D0011C9338510063173B /* MainViewControllerTests.swift in Sources */,
 			);

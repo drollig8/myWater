@@ -75,6 +75,14 @@ class AmountViewTests: XCTestCase {
         
     }
     
+    func testAmountViewSetsImageLabel_WhenItemInfoGetsSet() {
+        sut.itemInfo = (item: 2, page:0)
+        let beverage = BeverageManager().itemAtIndex(2, page: 0)
+        let imageLabel = beverage.name
+        XCTAssertEqual(sut.imageLabel.text, imageLabel)
+        
+    }
+    
     func testAmountView_HasSegmentedControl() {
         XCTAssertNotNil(sut.segmentedControl)
     }
@@ -143,10 +151,37 @@ class AmountViewTests: XCTestCase {
     
     func testChangingAmountSelecting_ChangesTextField() {
 
-        sut.amountPicker.selectRow(2, inComponent: 0, animated: false)
-        print(sut.amountPicker.selectedRowInComponent(0))
+        sut.amountPickerDataProvider.pickerView(sut.amountPicker, didSelectRow: 2, inComponent: 0)
         XCTAssertEqual(sut.valueTextField.text, "100")
     }
+
+   
+    func testNoValue_InvalidatesOk_Button() {
+        sut.segmentedControl.selectedSegmentIndex  = 1
+        sut.segmentChanged()
+        XCTAssertFalse(sut.okButton.enabled)
+        sut.valueTextField.text = ""
+        XCTAssertFalse(sut.okButton.enabled)
+        sut.valueTextField.text = "123"
+        sut.textFieldDidChange(self)
+        XCTAssertTrue(sut.okButton.enabled)
+        sut.valueTextField.text = ""
+        sut.textFieldDidChange(self)
+        XCTAssertFalse(sut.okButton.enabled)
+    }
+    
+    func testOkButton_PostsSelectecValue() {
+        sut.valueTextField.text = "123"
+        expectationForNotification("ValueEnteredNotification", object: nil) { (notification) -> Bool in
+            guard let value = notification.userInfo?["value"] as? Int else {return false}
+            return value == 123
+        }
+        sut.ok()
+        waitForExpectationsWithTimeout(3, handler: nil)
+        
+    }
+    
+
 
 
 }

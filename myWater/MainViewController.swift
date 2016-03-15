@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     var amountView: AmountView!
     
     var dismissButton: UIButton!
-    let heightRatioCollectionViewToSuperView: CGFloat = 2/3
+    let heightRatioCollectionViewToSuperView: CGFloat = 0.68
     
     
     var pokalButton:UIButton!
@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
     
     var heuteHastDuGetrunkenLabel:UILabel!
     var percentageLabel:UILabel!
-    
+    var entryManager = EntryManager()
     
     override func viewDidLoad() {
 
@@ -62,6 +62,7 @@ class MainViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "dissmissSelectionView", name: "DismissSelectionView", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAmountView:", name: "ItemSelectedNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "dismissAmountView", name: "DismissAmountView", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "save:", name: "ValueEnteredNotification", object: nil)
     }
     
     
@@ -89,6 +90,25 @@ class MainViewController: UIViewController {
 
         }
     }
+    
+    
+    
+    func save(notification:NSNotification) {
+        
+        // TODO DAS IST ZU TESTEN UND ZU ASSERTEN
+  //      let index = amountView.itemInfo?.index ?? 0
+  //      let page = amountView.itemInfo?.page ?? 0
+  //      let beverage = BeverageManager().itemAtIndex(index, page: page)
+        if let amount = notification.userInfo?["value"] as? Int {
+            let entry = Entry(date: NSDate(), beverage: Beverage(name: "TESTE"), amount: amount)
+            entryManager.addEntry(entry)
+        }
+    }
+    
+    
+    
+    
+    
     
     func dismissAmountView() {
         

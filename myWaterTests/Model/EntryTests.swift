@@ -9,7 +9,7 @@
 import XCTest
 @testable import myWater
 
-class WaterEntryTests: XCTestCase {
+class EntryTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -23,23 +23,23 @@ class WaterEntryTests: XCTestCase {
 
     func testInit_SetsDate() {
         let testDate = NSDate()
-        let waterEntry = WaterEntry(date: testDate)
-        XCTAssertEqual(testDate, waterEntry.date)
+        let entry = Entry(date: testDate)
+        XCTAssertEqual(testDate, entry.date)
         
     }
     
     
     func testInit_SetsDateAndBeverage() {
         let testDate = NSDate()
-        let waterEntry = WaterEntry(date: testDate, beverage: Beverage(name: "Test"))
-        XCTAssertEqual(waterEntry.beverage?.name, "Test")
+        let entry = Entry(date: testDate, beverage: Beverage(name: "Test"))
+        XCTAssertEqual(entry.beverage?.name, "Test")
         
     }
     
     func testInit_SetsDateAndBeverageAndAmount() {
         let testDate = NSDate()
-        let waterEntry = WaterEntry(date: testDate, beverage: nil, amount: 270)
-        XCTAssertEqual(waterEntry.amount, 270)
+        let entry = Entry(date: testDate, beverage: nil, amount: 270)
+        XCTAssertEqual(entry.amount, 270)
     }
 
 

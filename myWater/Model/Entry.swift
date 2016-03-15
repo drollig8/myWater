@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WaterEntry
+struct Entry
 {
     let date: NSDate
     let beverage: Beverage?

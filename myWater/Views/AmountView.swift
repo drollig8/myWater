@@ -22,14 +22,17 @@ class AmountView:UIView {
     var segmentedControl:UISegmentedControl!
     var valueTextField:UITextField!
     var unitLabel:UILabel!
+    var imageLabel:UILabel!
     let beverageManager = BeverageManager()
     
     var itemInfo:(item:Int, page:Int)? {
         didSet {
             let beverage = beverageManager.itemAtIndex(itemInfo!.item, page: itemInfo!.page)
-            if let name = beverage.imageName {
-                setupImageView(imageNamed: name)
+            if let imageName = beverage.imageName {
+                setupImageView(imageNamed: imageName)
             }
+            setupImageLabel(beverage.name)
+            
         }
     } // kann darüber über jede Instanz des BeverageManagers das Beverage bekommen.
     
@@ -79,11 +82,20 @@ class AmountView:UIView {
 
     }
     
+    private func setupImageLabel(name:String) {
+        imageLabel = UILabel(frame: imageLabelFrame)
+        imageLabel.text = name
+        imageLabel.textAlignment = .Center
+        imageLabel.font = UIFont.systemFontOfSize(12)
+        imageLabel.textColor = UIColor.myWaterTextColorDarkBlue()
+        
+        addSubview(imageLabel)
+    }
+    
     private func setupSegmentedControl() {
         
         segmentedControl = UISegmentedControl(items: ["Wählen","Mein"])
         segmentedControl.tintColor = UIColor.myWaterSegmentedControlDarkGrey()
-        segmentedControl.backgroundColor = testColor
         segmentedControl.frame = segmentedControlFrame
         segmentedControl.addTarget(self, action: "segmentChanged", forControlEvents: .ValueChanged)
         segmentedControl.selectedSegmentIndex = 0
@@ -95,7 +107,6 @@ class AmountView:UIView {
     // passt ganz gut mit der Höhe des Pickers
     private func setupAmountPicker() {
         amountPicker = UIPickerView(frame: amountPickerFrame)
-        amountPicker.backgroundColor = testColor
         amountPicker.dataSource = amountPickerDataProvider
         amountPicker.delegate = amountPickerDataProvider
         amountPicker.selectRow(5, inComponent: 0, animated: false)
@@ -105,12 +116,10 @@ class AmountView:UIView {
     private func setupImageView(imageNamed imageName:String) {
 
         imageView = UIImageView(frame: imageFrame)
-        imageView.backgroundColor = testColor
         imageView.image = UIImage(named: imageName)
-        imageView.backgroundColor = testColor
         addSubview(imageView)
     }
-// TODO test that testfield receives selected value
+
     private func setupValueTextField() {
         valueTextField = UITextField(frame: valueTextFieldFrame)
         let selectedRow = amountPicker.selectedRowInComponent(0)
@@ -118,11 +127,11 @@ class AmountView:UIView {
         
         valueTextField.text = "\(amount)"
         valueTextField.textColor = UIColor.myWaterTextColorDarkBlue()
-        valueTextField.font = UIFont.systemFontOfSize(32, weight: UIFontWeightLight)
+        valueTextField.font = UIFont.systemFontOfSize(30, weight: UIFontWeightLight)
         valueTextField.enabled = false
         valueTextField.keyboardType = UIKeyboardType.NumberPad
         valueTextField.textAlignment = .Right
-        valueTextField.backgroundColor = testColor
+        valueTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
         addSubview(valueTextField)
         
     }
@@ -131,18 +140,24 @@ class AmountView:UIView {
         unitLabel = UILabel(frame: unitLabelFrame)
         unitLabel.text = "ml"
         unitLabel.textColor = UIColor.myWaterTextColorDarkBlue()
-        unitLabel.font = UIFont(name: "Arial",size: 32)
+        unitLabel.font = UIFont.systemFontOfSize(30)
         addSubview(unitLabel)
         
     }
     
     func didChangeAmountSelection(notification:NSNotification) {
-        let row = notification.userInfo!["row"] as! Int
-        print(row)
-        valueTextField.text = amountPicker.delegate?.pickerView!(amountPicker, titleForRow: amountPicker.selectedRowInComponent(0), forComponent: 0)
-        print(amountPicker.delegate?.pickerView!(amountPicker, titleForRow: amountPicker.selectedRowInComponent(0), forComponent: 0))
+        let index = notification.userInfo!["row"] as! Int
+        valueTextField.text = "\(amountPickerDataProvider.amountAtIndex(index))"
     }
+    
     func ok() {
+        let value = Int(valueTextField.text!) ?? 0
+        NSNotificationCenter.defaultCenter().postNotificationName("ValueEnteredNotification", object: self, userInfo: ["value":value])
+    }
+    
+    func textFieldDidChange(sender:AnyObject) {
+        
+        okButton.enabled = valueTextField.text != ""
     }
     
     func back() {
@@ -154,8 +169,10 @@ class AmountView:UIView {
             valueTextField.enabled = true
             valueTextField.becomeFirstResponder()
             valueTextField.text = ""
+            okButton.enabled = false
         } else {
             valueTextField.enabled = false
+            okButton.enabled = true
         }
     }
     
@@ -165,21 +182,26 @@ class AmountView:UIView {
     }
     
     var amountPickerFrame:CGRect {
-        return CGRect(x: 0,y: frame.height - 200, width: frame.width, height: 200)
+        return CGRect(x: 0,y: frame.height - 235, width: frame.width, height: 235)
     }
     
     var imageFrame:CGRect {
-        let borderDistance:CGFloat = 50.0
-        return CGRect(x: borderDistance, y: 100, width: 60, height: 60)
+        return CGRect(x: 70, y: 63, width: 65, height: 65)
+    }
+    
+    var imageLabelFrame:CGRect {
+        return CGRect(x: 70, y: 128, width: 65, height: 25)
     }
     
     var valueTextFieldFrame:CGRect {
-        return CGRect(x: 145, y: 90, width: 70, height: 30)
+        return CGRect(x: 125, y: 95, width: 85, height: 30)
     }
     
     var unitLabelFrame:CGRect {
-        return CGRect(x: 220, y: 90, width: 70, height: 30)
+        return CGRect(x: 215, y: 95, width: 70, height: 30)
     }
+    
+
 }
 
 

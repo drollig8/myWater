@@ -121,6 +121,30 @@ class MainViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.amountView.itemInfo!.page, 9)
     }
     
+    
+    func testWhenReceivingOkValue_CallsSaveNotification() {
+        XCTAssertEqual(sut.entryManager.entriesCount(), 0)
+        NSNotificationCenter.defaultCenter().postNotificationName("ValueEnteredNotification", object: nil, userInfo: ["value":1234])
+        XCTAssertEqual(sut.entryManager.entriesCount(), 1)
+    }
+    
+    func testWhenReceivingOkValue_SavesDateAndValue() {
+        XCTAssertEqual(sut.entryManager.entriesCount(), 0)
+        NSNotificationCenter.defaultCenter().postNotificationName("ValueEnteredNotification", object: nil, userInfo: ["value":1234])
+        let entries = sut.entryManager.entriesWithDate(NSDate())
+        let entry = entries.first
+        let timestampReceived = entry!.date.timeIntervalSince1970
+        XCTAssertEqualWithAccuracy(timestampReceived, NSDate().timeIntervalSince1970, accuracy: 1)
+        XCTAssertEqual(entry?.amount, 1234)
+    }
+
+    
+    /*
+    func testWhenReceivingOkValue_DismissAmoundAndSelectionView() {
+        
+    }
+   */
+    
     //TODOO !!!
     func DIStestMainViewController_PresentsAmountViewWhenItemWasSelected() {
         sut.addEntry(UIButton())
