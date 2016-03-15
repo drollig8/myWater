@@ -12,7 +12,7 @@ let testColor = UIColor.redColor().colorWithAlphaComponent(0.2)
 class MainViewController: UIViewController {
     
     var selectionView:SelectionView!
-    var amountView: UIView!
+    var amountView: AmountView!
     
     var dismissButton: UIButton!
     let heightRatioCollectionViewToSuperView: CGFloat = 2/3
@@ -60,18 +60,20 @@ class MainViewController: UIViewController {
     
     private func subscribeForNotification() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "dissmissSelectionView", name: "DismissSelectionView", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAmountView", name: "ItemSelectedNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAmountView:", name: "ItemSelectedNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "dismissAmountView", name: "DismissAmountView", object: nil)
     }
     
     
 
-    func showAmountView() {
+    func showAmountView(notification:NSNotification) {
        
         // Animation ohne Test - place amount view add left side
         let amountViewFrame = CGRectMake(view.frame.width, view.frame.height - view.frame.height*heightRatioCollectionViewToSuperView,view.frame.width, view.frame.height*heightRatioCollectionViewToSuperView)
         amountView = AmountView(frame: amountViewFrame)
-        
+        guard let index = notification.userInfo?["index"] as? Int else {fatalError()}
+        guard let page = notification.userInfo?["page"] as? Int else {fatalError()}
+        amountView.itemInfo = (index,page)
         view.addSubview(amountView)
         UIView.animateWithDuration(0.7) { () -> Void in
             
@@ -162,23 +164,5 @@ class MainViewController: UIViewController {
        // selectionView?.removeFromSuperview()
         dismissButton?.removeFromSuperview()
     }
-    
-    @IBAction func amountTest(sender: AnyObject) {
-        
-        let selectionFrame = CGRectMake(0, super.view.frame.height,super.view.frame.width, super.view.frame.height*heightRatioCollectionViewToSuperView)
-        
-        dismissButton = UIButton(frame: view.frame)
-        dismissButton.addTarget(self, action: "dissmissSelectionView", forControlEvents: .TouchUpInside)
-        view.addSubview(dismissButton)
-        
-        
-        
-        // Animation ohne Test
-        let amountView = AmountView(frame: selectionFrame)
-        
-        view.addSubview(amountView)
-        UIView.animateWithDuration(0.7) { () -> Void in
-            amountView.frame.origin.y = self.view.frame.height - selectionFrame.height }
-        
-    }
+
 }

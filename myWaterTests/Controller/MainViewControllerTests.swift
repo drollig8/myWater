@@ -111,6 +111,15 @@ class MainViewControllerTests: XCTestCase {
     }
     
     // MARK: - Segueing
+
+    func testMainViewController_SetsItemInfoToAmountView() {
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("ItemSelectedNotification", object: nil, userInfo: ["index":7,"page":9])
+        
+        
+        XCTAssertEqual(sut.amountView.itemInfo!.item, 7)
+        XCTAssertEqual(sut.amountView.itemInfo!.page, 9)
+    }
     
     //TODOO !!!
     func DIStestMainViewController_PresentsAmountViewWhenItemWasSelected() {

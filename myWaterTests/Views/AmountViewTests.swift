@@ -55,6 +55,11 @@ class AmountViewTests: XCTestCase {
         XCTAssertNotNil(sut.amountPicker.delegate)
     }
 
+    // TODO: on didselect darf nur wert gesetzt werden
+    // TODO: icon muss höher
+    // TODO: label muss noch unter das icon
+    // TODO: inaktiviere haken, wenn unter benutzerdefiniert kein Wert steht
+    // TODO: haken speicher daten.
     
     func testAmountPickerContainsCorrectValues() {
         let picker = sut.amountPicker
@@ -62,7 +67,7 @@ class AmountViewTests: XCTestCase {
         XCTAssertEqual(row, "30ml (espresso)")
     }
 
-    func testAmountViewSetsLabel_WhenItemInfoGetsSet() {
+    func testAmountViewSetsImage_WhenItemInfoGetsSet() {
         sut.itemInfo = (item: 2, page:0)
         let beverage = BeverageManager().itemAtIndex(2, page: 0)
         let imageName = beverage.imageName
@@ -89,9 +94,69 @@ class AmountViewTests: XCTestCase {
     }
     
     func testSelectionOfMein_ShowInputTextField() {
+        XCTAssertFalse(sut.valueTextField.enabled)
         sut.segmentedControl.selectedSegmentIndex = 1
         sut.segmentChanged()
         XCTAssertTrue(sut.valueTextField.enabled)
     }
+    
+    func testDefaultValueOfPicker_is250ml() {
+        let selectedDefaultRow = sut.amountPicker.selectedRowInComponent(0)
+        XCTAssertEqual(selectedDefaultRow, 5)
+    }
+    
+    func testSelectingMein_SetsFocusOnTextField() {
+        let mockTextField = MockTextField()
+        sut.valueTextField = mockTextField
+        sut.segmentedControl.selectedSegmentIndex = 1
+        sut.segmentChanged()
+        XCTAssertTrue(mockTextField.hasBecomeFirstResponder)
+    }
+    
+    func testTextField_IsRightAlignet() {
+        XCTAssertEqual(sut.valueTextField.textAlignment, NSTextAlignment.Right)
+    }
+    
+    func testTextField_IsDeleted_WhenSegmentedCahnged() {
+        XCTAssertFalse(sut.valueTextField.text!.isEmpty)
+        sut.segmentedControl.selectedSegmentIndex = 1
+        sut.segmentChanged()
+        XCTAssertTrue(sut.valueTextField.text!.isEmpty)
+    }
+    
+    func testTextFieldContains_DefaultValue() {
+        XCTAssertEqual(sut.valueTextField.text, "250")
+    }
+    
+    func testSelectingMein_ShowsNumKeyboard() {
+        XCTAssertEqual(sut.valueTextField.keyboardType, UIKeyboardType.NumberPad)
+    }
+    
+    func testSelectingSegment_DefaultValueSelected_Is0() {
+        XCTAssertEqual(sut.segmentedControl.selectedSegmentIndex, 0)
+    }
+    
+    func testAmountView_HasUnitLabel() {
+        XCTAssertNotNil(sut.unitLabel)
+    }
+    
+    
+    func testChangingAmountSelecting_ChangesTextField() {
 
+        sut.amountPicker.selectRow(2, inComponent: 0, animated: false)
+        print(sut.amountPicker.selectedRowInComponent(0))
+        XCTAssertEqual(sut.valueTextField.text, "100")
+    }
+
+
+}
+
+extension AmountViewTests {
+    class MockTextField:UITextField {
+        var hasBecomeFirstResponder=false
+        override func becomeFirstResponder() -> Bool {
+            hasBecomeFirstResponder=true
+            return super.becomeFirstResponder()
+        }
+    }
 }
