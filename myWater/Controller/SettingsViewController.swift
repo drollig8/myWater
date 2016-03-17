@@ -21,6 +21,7 @@ class SettingsViewController: UIViewController {
     private func setupLabels() {
         titleLabel = UILabel(frame:CGRect(x: 20, y: 5, width: view.frame.width - 20, height: 25))
         titleLabel.text = "Einstellungen"
+        titleLabel.textAlignment = .Center
         titleLabel.textColor = UIColor.whiteColor()
         view.addSubview(titleLabel)
     }
