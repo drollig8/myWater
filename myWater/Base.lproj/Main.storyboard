@@ -24,5 +24,24 @@
             </objects>
             <point key="canvasLocation" x="466" y="468"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="uTf-Yt-U6f">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="2ur-to-j0G" customClass="SettingsViewController" customModule="myWater" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AZc-E0-Ic8"/>
+                        <viewControllerLayoutGuide type="bottom" id="ARn-B7-IQa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rf3-je-9Gd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.70588235290000001" green="0.87843137250000003" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MKW-ys-S22" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="803" y="468"/>
+        </scene>
     </scenes>
 </document>

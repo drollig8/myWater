@@ -55,11 +55,6 @@ class AmountViewTests: XCTestCase {
         XCTAssertNotNil(sut.amountPicker.delegate)
     }
 
-    // TODO: on didselect darf nur wert gesetzt werden
-    // TODO: icon muss höher
-    // TODO: label muss noch unter das icon
-    // TODO: inaktiviere haken, wenn unter benutzerdefiniert kein Wert steht
-    // TODO: haken speicher daten.
     
     func testAmountPickerContainsCorrectValues() {
         let picker = sut.amountPicker

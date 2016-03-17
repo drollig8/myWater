@@ -138,9 +138,43 @@ class MainViewControllerTests: XCTestCase {
         XCTAssertEqual(entry?.amount, 1234)
     }
 
+    // MARK: - Settings
+    
+    func testMainViewController_HasSettingsButton() {
+        XCTAssertNotNil(sut.settingsButton)
+    }
+    
+    func testSettings_HasActionWithTargetSelf() {
+        guard let settingsButton = sut.settingsButton else {fatalError()}
+        XCTAssertTrue(settingsButton.targetForAction("showSettings", withSender: self) === sut)
+    }
+    
+    func testSettingsAction_PresentsViewController() {
+        UIApplication.sharedApplication().keyWindow?.rootViewController = sut
+        XCTAssertNil(sut.presentedViewController)
+        sut.showSettings()
+        XCTAssertNotNil(sut.presentedViewController)
+    }
+    
+    func testSettingsAction_PresentsSettingsViewController() {
+        UIApplication.sharedApplication().keyWindow?.rootViewController = sut
+        XCTAssertNil(sut.presentedViewController)
+        sut.showSettings()
+        XCTAssertTrue(sut.presentedViewController is SettingsViewController)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // TODO DISABLED CASES
     
     // WIE KANN ICH DAS TESTEN????
-    func testWhenReceivingOkValue_DismissAmoundAndSelectionView() {
+    func DIStestWhenReceivingOkValue_DismissAmoundAndSelectionView() {
         class MockAmountView:AmountView {
             var didCallRemoveFromSuperView = false
             private override func removeFromSuperview() {
@@ -155,9 +189,8 @@ class MainViewControllerTests: XCTestCase {
         waitForExpectationsWithTimeout(3, handler: nil)
         
     }
-   
     
-    //TODOO !!!
+    
     func DIStestMainViewController_PresentsAmountViewWhenItemWasSelected() {
         sut.addEntry(UIButton())
         guard let _ = sut.view.subviews.last as? SelectionView else {fatalError()}

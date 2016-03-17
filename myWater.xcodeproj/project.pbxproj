@@ -33,6 +33,8 @@
 		6E15EC801C989127006C0DED /* EntryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15EC7F1C989127006C0DED /* EntryManager.swift */; };
 		6E15EC821C98A294006C0DED /* DateHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15EC811C98A294006C0DED /* DateHelperTests.swift */; };
 		6E15EC841C98A29E006C0DED /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15EC831C98A29E006C0DED /* DateHelper.swift */; };
+		6E15EC861C994552006C0DED /* SettingsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15EC851C994552006C0DED /* SettingsViewControllerTests.swift */; };
+		6E15EC881C994564006C0DED /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15EC871C994564006C0DED /* SettingsViewController.swift */; };
 		6E82A72F1C96ED16006F2B67 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E82A72E1C96ED16006F2B67 /* AmountView.swift */; };
 		6E82A7311C96ED84006F2B67 /* AmountViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E82A7301C96ED84006F2B67 /* AmountViewTests.swift */; };
 		6EB236AD1C973A54001AED14 /* AmountPickerDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB236AC1C973A54001AED14 /* AmountPickerDataProvider.swift */; };
@@ -79,6 +81,8 @@
 		6E15EC7F1C989127006C0DED /* EntryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryManager.swift; path = Model/EntryManager.swift; sourceTree = "<group>"; };
 		6E15EC811C98A294006C0DED /* DateHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelperTests.swift; sourceTree = "<group>"; };
 		6E15EC831C98A29E006C0DED /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		6E15EC851C994552006C0DED /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewControllerTests.swift; path = Controller/SettingsViewControllerTests.swift; sourceTree = "<group>"; };
+		6E15EC871C994564006C0DED /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controller/SettingsViewController.swift; sourceTree = "<group>"; };
 		6E82A72E1C96ED16006F2B67 /* AmountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmountView.swift; path = Views/AmountView.swift; sourceTree = "<group>"; };
 		6E82A7301C96ED84006F2B67 /* AmountViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmountViewTests.swift; path = Views/AmountViewTests.swift; sourceTree = "<group>"; };
 		6EB236AC1C973A54001AED14 /* AmountPickerDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountPickerDataProvider.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 				6E15D00F1C9348EA0063173B /* SelectionViewDataProviderTests.swift */,
 				6E15D0451C94143B0063173B /* BeverageCellTests.swift */,
 				6E15D0471C9416ED0063173B /* ContentViewControllerTests.swift */,
+				6E15EC851C994552006C0DED /* SettingsViewControllerTests.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				6E15CFFD1C9338260063173B /* MainViewController.swift */,
 				6E15D00D1C9347560063173B /* SelectionDataProvider.swift */,
 				6E15D0411C93FE5F0063173B /* ContentViewController.swift */,
+				6E15EC871C994564006C0DED /* SettingsViewController.swift */,
 				6E15D0431C9412D40063173B /* BeverageCell.swift */,
 			);
 			name = Controller;
@@ -354,6 +360,7 @@
 				6E82A72F1C96ED16006F2B67 /* AmountView.swift in Sources */,
 				6E15D04C1C94B6910063173B /* Extension+UIColor.swift in Sources */,
 				6E15D0421C93FE5F0063173B /* ContentViewController.swift in Sources */,
+				6E15EC881C994564006C0DED /* SettingsViewController.swift in Sources */,
 				6EB236AD1C973A54001AED14 /* AmountPickerDataProvider.swift in Sources */,
 				6E15CFFE1C9338260063173B /* MainViewController.swift in Sources */,
 				6E15CFCF1C9333A00063173B /* ViewController.swift in Sources */,
@@ -370,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E15D0461C94143B0063173B /* BeverageCellTests.swift in Sources */,
+				6E15EC861C994552006C0DED /* SettingsViewControllerTests.swift in Sources */,
 				6E15CFF31C9334430063173B /* EntryTests.swift in Sources */,
 				6E15CFF71C9336650063173B /* BeverageTests.swift in Sources */,
 				6E82A7311C96ED84006F2B67 /* AmountViewTests.swift in Sources */,

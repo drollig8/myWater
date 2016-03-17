@@ -23,6 +23,8 @@ class MainViewController: UIViewController {
     var infoButton:UIButton!
     var addEntryButton: UIButton!
     
+    var settingsButton:UIButton!
+    
     var heuteHastDuGetrunkenLabel:UILabel!
     var percentageLabel:UILabel!
     var entryManager = EntryManager()
@@ -111,11 +113,15 @@ class MainViewController: UIViewController {
     
     func dismissAmountAndSlectionView() {
         selectionView?.removeFromSuperview()
-        UIView.animateWithDuration(0.7, animations: { () -> Void in
-            self.amountView.frame.origin.y = self.view.frame.height
-            }) { (bool) -> Void in
-                self.amountView.removeFromSuperview()
+        if let amountView = self.amountView {
+            UIView.animateWithDuration(0.7, animations: { () -> Void in
+                amountView.frame.origin.y = self.view.frame.height
+                }) { (bool) -> Void in
+                    amountView.removeFromSuperview()
+            }
         }
+
+    
     }
     
     
@@ -142,15 +148,15 @@ class MainViewController: UIViewController {
         
         pokalButton = UIButton(frame: CGRect(x: 55, y: 38, width: 45, height: 45))
         pokalButton.setImage(UIImage(named: "main_pokal"), forState: .Normal)
-        self.view.addSubview(pokalButton)
+        view.addSubview(pokalButton)
         
         ideaButton = UIButton(frame: CGRect(x: 55 + 45 + xDistanceBetweenButtons, y: 38, width: 45, height: 45))
         ideaButton.setImage(UIImage(named: "main_idea"), forState: .Normal)
-        self.view.addSubview(ideaButton)
+        view.addSubview(ideaButton)
         
         infoButton = UIButton(frame: CGRect(x: 55 + 45 + xDistanceBetweenButtons + 45 + xDistanceBetweenButtons, y: 38, width: 45, height: 45))
         infoButton.setImage(UIImage(named: "main_info"), forState: .Normal)
-        self.view.addSubview(infoButton)
+        view.addSubview(infoButton)
         
         let xPos = self.view.frame.width / 2 - 100
         addEntryButton = UIButton(frame: CGRect(x: xPos, y: 350, width: 200, height: 45))
@@ -159,7 +165,13 @@ class MainViewController: UIViewController {
         addEntryButton.backgroundColor = UIColor.myWaterTextColorDarkBlue()
         addEntryButton.layer.cornerRadius = 5
         addEntryButton.layer.borderWidth = 1
-        self.view.addSubview(addEntryButton)
+        view.addSubview(addEntryButton)
+        
+        let yPos = self.view.frame.height - 41 - 45
+        settingsButton = UIButton(frame: CGRect(x: 55 + 45 + xDistanceBetweenButtons + 45 + xDistanceBetweenButtons, y:yPos, width: 45, height: 45))
+        settingsButton.setImage(UIImage(named:"main_settings"), forState: .Normal)
+        settingsButton.addTarget(self, action: "showSettings", forControlEvents:  .TouchUpInside)
+        view.addSubview(settingsButton)
     }
     
     private func layoutLabels() {
@@ -182,6 +194,12 @@ class MainViewController: UIViewController {
     }
     
 
+    func showSettings() {
+        
+        let viewController = storyboard?.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
+        self.presentViewController(viewController, animated: true, completion: nil)
+        
+    }
     
     func dissmissSelectionView() {
         // Animation ohne Test
