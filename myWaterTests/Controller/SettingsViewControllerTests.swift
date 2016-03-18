@@ -29,5 +29,26 @@ class SettingsViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.titleLabel)
         XCTAssertEqual(sut.titleLabel.text, "Einstellungen")
     }
+    
+    func test_SettingsHasDarkBlueNavigationBarSimulation() {
+        XCTAssertNotNil(sut.customNavigationBar)
+    }
+    
+    func testStatusbar_IsWhite() {
+        // untestable
+    }
+    
+    func testSettingssHas_SpeichernButton() {
+        XCTAssertNotNil(sut.saveButton)
+    }
+    
+    func testSaveButton_HasTargetSelf() {
+        let button = sut.saveButton
+        XCTAssertTrue(button.targetForAction("save:", withSender: UIButton()) === sut)
+    }
+    
+    func testSettings_HasTable() {
+        XCTAssertNotNil(sut.tableView)
+    }
 }
 

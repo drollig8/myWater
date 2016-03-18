@@ -21,5 +21,9 @@ extension UIColor {
     class func myWaterSegmentedControlDarkGrey() -> UIColor {
         return UIColor(red: 102/255, green: 134/255, blue: 150/255, alpha: 1.0)
     }
+    
+    class func myWaterNavBarBackgroundColor()-> UIColor {
+        return UIColor(red: 44/255, green: 151/255, blue: 213/255, alpha: 1.0)
+    }
 }
 

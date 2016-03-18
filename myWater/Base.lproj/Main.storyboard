@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -16,7 +17,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.70588235294117652" green="0.8784313725490196" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.86274509803921573" green="0.92549019607843142" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
@@ -35,9 +36,51 @@
                     <view key="view" contentMode="scaleToFill" id="rf3-je-9Gd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.70588235290000001" green="0.87843137250000003" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="TkA-6q-CXM">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="377"/>
+                                <color key="backgroundColor" red="0.86274509803921573" green="0.92549019607843142" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jIP-Wt-udy">
+                                        <rect key="frame" x="0.0" y="50" width="328" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jIP-Wt-udy" id="i1r-SZ-aBa">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tdj-Fc-BHZ">
+                                        <rect key="frame" x="0.0" y="94" width="328" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tdj-Fc-BHZ" id="Lbe-q3-P97">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gRo-o5-oaq">
+                                        <rect key="frame" x="0.0" y="138" width="328" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gRo-o5-oaq" id="cWN-6P-qRS">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.86274509803921573" green="0.92549019607843142" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="TkA-6q-CXM" secondAttribute="trailing" constant="-20" id="0w1-AJ-dUZ"/>
+                            <constraint firstItem="TkA-6q-CXM" firstAttribute="leading" secondItem="rf3-je-9Gd" secondAttribute="leadingMargin" constant="-20" id="EFT-j1-uga"/>
+                            <constraint firstItem="TkA-6q-CXM" firstAttribute="top" secondItem="rf3-je-9Gd" secondAttribute="topMargin" id="Pc6-zq-hiR"/>
+                            <constraint firstItem="ARn-B7-IQa" firstAttribute="top" secondItem="TkA-6q-CXM" secondAttribute="bottom" constant="191" id="Wxk-AK-upG"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="TkA-6q-CXM" id="gvk-gC-ZbL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKW-ys-S22" sceneMemberID="firstResponder"/>
             </objects>
